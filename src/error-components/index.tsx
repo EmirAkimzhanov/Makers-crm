@@ -13,7 +13,11 @@ export default class ErrorBoundory extends Component<{ children: ReactNode }> {
 
   render(): ReactNode {
     if (this.state.hasError) {
-      return <h1 color="red">Error Error</h1>;
+      return (
+        <dialog open>
+          <h1 color="red">ERROR</h1>
+        </dialog>
+      );
     }
     return this.props.children;
   }
