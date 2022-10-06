@@ -1,8 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { fetchUsers } from "../../store/actions/userAction";
+import { useAppSelector, useAppDispatch } from '../../hooks';
+import { fetchRooms } from "../../store/actions/roomAction";
+import withError from "../../hoc-components/hoc-error";
+import "./user-page.css";
 
 const UsersPage = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  useEffect(()=>{
+    dispatch(fetchRooms())
+    dispatch(fetchUsers())
+  },[])
+
+
+  const data= useAppSelector(state => state)
+  console.log(data);
+
   return (
     <>
       <div className="main">
@@ -59,4 +75,4 @@ const UsersPage = () => {
   );
 };
 
-export default UsersPage;
+export default withError(UsersPage)
