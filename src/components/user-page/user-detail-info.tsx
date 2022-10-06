@@ -1,4 +1,5 @@
 import React from "react";
+import "./user-detail-info.css";
 
 const UserDetailinfo = () => {
   return (

@@ -10,7 +10,6 @@ export default class ErrorBoundory extends Component<{ children: ReactNode }> {
       hasError: true,
     });
   }
-
   render(): ReactNode {
     if (this.state.hasError) {
       return (
