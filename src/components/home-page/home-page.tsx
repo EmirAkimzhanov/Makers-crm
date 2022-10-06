@@ -26,8 +26,8 @@ const HomePage = () => {
       <div className="home-container">
         <h2>Feed</h2>
         {
-          data.map((feed_item) => (
-            <div className="home-feed__block">
+          data.map((feed_item, index) => (
+            <div className="home-feed__block" key={index}>
               <p className="home-feed__text"><span className="mentor">{feed_item.mentor}</span>  {feed_item.info}</p>
               <p className="home-feed__time">{feed_item.time}</p>
             </div>
