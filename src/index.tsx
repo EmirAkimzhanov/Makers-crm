@@ -6,14 +6,18 @@ import BuildRoutes from "./BuildRoutes";
 import { store } from "./store/store";
 import "../src/components/user-page/user-page.css";
 import "../src/components/user-page/user-detail-info.css";
+import SideBar from "./components/sidebar/sideBar";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <BuildRoutes />
-    </BrowserRouter>
-  </Provider>
+  <div>
+    <Provider store={store}>
+      <SideBar />
+      <BrowserRouter>
+        <BuildRoutes />
+      </BrowserRouter>
+    </Provider>
+  </div>
 );
