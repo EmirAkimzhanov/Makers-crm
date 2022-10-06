@@ -1,0 +1,34 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px 40px;
+  border-bottom: 2px solid #F5F5F5;
+}
+
+nav ul {
+  margin: 0 10%;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav ul li {
+  margin: 0 80%;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 100ms;
+}
+
+nav ul li:hover {
+  color: #FFA86A;
+}
+
+.nav-logo {
+  cursor: pointer;
+}
+

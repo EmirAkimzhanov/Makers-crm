@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import BuildRoutes from "./BuildRoutes";
+import Navbar from "./components/navbar/navbar";
 import { store } from "./store/store";
 
 const root = ReactDOM.createRoot(
@@ -11,6 +12,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <BrowserRouter>
+    <Navbar />
       <BuildRoutes />
     </BrowserRouter>
   </Provider>
