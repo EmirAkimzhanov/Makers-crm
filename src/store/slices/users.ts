@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IUser } from "src/@types/userTypes";
-import { IDetail } from "src/@types/detailTypes";
+import { IUser, IUserDetail } from "src/@types/user";
 
 interface IState {
   users: IUser[];
-  userDetail: IDetail;
+  userDetail: IUserDetail;
   user: null | object;
   loading: boolean;
   error: null | string;
@@ -12,7 +11,7 @@ interface IState {
 
 const initialState: IState = {
   users: [],
-  userDetail: {} as IDetail,
+  userDetail: {} as IUserDetail,
   user: null,
   loading: true,
   error: null,

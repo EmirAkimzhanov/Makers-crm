@@ -1,6 +1,6 @@
 import { AppDispatch } from "../store";
 import axios from "axios";
-import { getAllRooms, getAllRoomsFailed } from "../slices/roomsSlice";
+import { getAllRooms, getAllRoomsFailed } from "../slices/rooms";
 
 export const fetchRooms = () => async (dispatch: AppDispatch) => {
   try {
@@ -9,4 +9,4 @@ export const fetchRooms = () => async (dispatch: AppDispatch) => {
   } catch (error) {
     dispatch(getAllRoomsFailed(error));
   }
-}
+};

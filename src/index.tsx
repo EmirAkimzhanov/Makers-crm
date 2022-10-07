@@ -1,11 +1,12 @@
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import BuildRoutes from "./BuildRoutes";
 import Navbar from "./components/navbar/navbar";
-import SideBar from "./components/sidebar/sideBar";
+import SideBar from "./components/sidebar/side-bar";
 import { store } from "./store/store";
-import "../src/components/user-page/user-page.css";
+import BuildRoutes from "./build-routes";
+import "./index.css";
+import UserPage from "./components/user-page";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -14,6 +15,7 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Navbar />
+      <UserPage />
       <SideBar />
       <BuildRoutes />
     </BrowserRouter>
