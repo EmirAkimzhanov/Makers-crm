@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IUser } from "src/@types/user";
+import { IUser } from "src/@types/userTypes";
+import { IDetail } from "src/@types/detailTypes";
 
 interface IState {
   users: IUser[];
+  userDetail: IDetail;
   user: null | object;
   loading: boolean;
   error: null | string;
@@ -10,6 +12,7 @@ interface IState {
 
 const initialState: IState = {
   users: [],
+  userDetail: {} as IDetail,
   user: null,
   loading: true,
   error: null,
@@ -23,6 +26,10 @@ const usersSlice = createSlice({
       state.users = action.payload;
       state.loading = false;
     },
+    getDetail(state, action) {
+      state.userDetail = action.payload;
+      state.loading = false;
+    },
     getPeopleFailed(state, action) {
       state.error = action.payload;
       state.loading = false;
@@ -34,8 +41,14 @@ const usersSlice = createSlice({
   },
 });
 
-const { getAllPeopleSuccess, getOnePeople, getPeopleFailed } =
+const { getAllPeopleSuccess, getOnePeople, getPeopleFailed, getDetail } =
   usersSlice.actions;
 
 const userReducer = usersSlice.reducer;
-export { userReducer, getAllPeopleSuccess, getOnePeople, getPeopleFailed };
+export {
+  userReducer,
+  getAllPeopleSuccess,
+  getOnePeople,
+  getPeopleFailed,
+  getDetail,
+};

@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { fetchUsers } from "../../store/actions/userAction";
+import { useAppSelector, useAppDispatch } from "../../hooks";
+import withError from "../../hoc-components/hoc-error";
+=======
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchUsers } from "../../store/actions/user";
@@ -5,13 +12,17 @@ import { useAppSelector, useAppDispatch } from "../../hooks";
 import { fetchRooms } from "../../store/actions/room";
 import withError from "../../hoc-components/hoc-error";
 import "./user-page.css";
+>>>>>>> db5b01ab33c3348f86e17c4409901ac0426740c5
 
 const UsersPage = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+<<<<<<< HEAD
+=======
     dispatch(fetchRooms());
+>>>>>>> db5b01ab33c3348f86e17c4409901ac0426740c5
     dispatch(fetchUsers());
   }, []);
 
@@ -21,22 +32,25 @@ const UsersPage = () => {
   return (
     <>
       <div className="main">
-        <div className="main_left-box">
-          <div className="main_left-box-content">
-            <p className="main_left-box-content-text">менторы</p>
-          </div>
-          <div className="main_left-box-content">
-            <p className="main_left-box-content-text">кураторы</p>
-          </div>
-          <div className="main_left-box-content">
-            <p className="main_left-box-content-text">смм</p>
-          </div>
-          <div className="main_left-box-content">
-            <p className="main_left-box-content-text">продажи</p>
-          </div>
-        </div>
         <div className="main_right-box">
           <h1 className="main_right-box-head-text">Менторы</h1>
+<<<<<<< HEAD
+          {data.user.users.map((e) => {
+            return (
+              <>
+                <div
+                  className="main_right-box-mentor-content"
+                  onClick={() => navigate(`/users/${e.id}`)}
+                >
+                  <div className="profile"></div>
+                  <p className="mentors-name">
+                    {e.name} {e.surname}
+                  </p>
+                </div>
+              </>
+            );
+          })}
+=======
           <div
             className="main_right-box-mentor-content"
             onClick={() => navigate("/users/1")}>
@@ -67,6 +81,7 @@ const UsersPage = () => {
             <div className="profile"></div>
             <p className="mentors-name">Azret M.</p>
           </div>
+>>>>>>> db5b01ab33c3348f86e17c4409901ac0426740c5
         </div>
       </div>
     </>
