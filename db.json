@@ -1,0 +1,60 @@
+{
+  "employee": [
+    {
+      "name": "Abbas",
+      "surname": "Kokoev",
+      "status": "Tracker",
+      "language": "JavaScript",
+      "id": "1"
+    },
+    {
+      "name": "Azret",
+      "surname": "Moldobaev",
+      "status": "Mentor",
+      "language": "JavaScript",
+      "id": "2"
+    },
+    {
+      "name": "Aizirek",
+      "surname": "Azshymzhanova",
+      "status": "Tracker",
+      "language": "JavaScript",
+      "id": "3"
+    },
+    {
+      "name": "Aitegin",
+      "surname": "Janybaev",
+      "status": "Tracker",
+      "language": "JavaScript",
+      "id": "4"
+    },
+    {
+      "name": "Aleks",
+      "surname": "Nazarenko",
+      "status": "Mentor",
+      "language": "JavaScript",
+      "id": "5"
+    },
+    {
+      "name": "Aliya",
+      "surname": "Mambetalieva",
+      "status": "Tracker",
+      "language": "JavaScript",
+      "id": "6"
+    },
+    {
+      "name": "Anton",
+      "surname": "She",
+      "status": "Mentor",
+      "language": "JavaScript",
+      "id": "7"
+    },
+    {
+      "name": "Polina",
+      "surname": "Chernoysova",
+      "status": "Tracker",
+      "language": "JavaScript",
+      "id": "8"
+    }
+  ]
+}

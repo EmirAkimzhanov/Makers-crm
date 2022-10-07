@@ -1,14 +1,38 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import UsersPage from "../src/components/user-page";
+import UsersPage from "./components/user-page/user-page";
 import UserDetailinfo from "./components/user-page/user-detail-info";
-// import usersPage from '../../src/';
+import { IRouteType } from "src/@types/routeTypes";
+import HomePage from "./components/home-page/home-page";
+import Navbar from "./components/navbar/navbar";
 
 const BuildRoutes = () => {
+
+  const routes: IRouteType[] = [
+    {
+      link: "/",
+      element: <HomePage />,
+      id: 1,
+    },
+    {
+      link: "/users",
+      element: <UsersPage />,
+      id: 2,
+    },
+    {
+      link: "/users/:id",
+      element: <UserDetailinfo />,
+      id: 3,
+    }
+  ]
+
   return (
     <Routes>
-      <Route path="/users" element={<UsersPage />} />
-      <Route path="/users/1" element={<UserDetailinfo />} />
+      {
+        routes.map((route) => (
+          <Route path={route.link} element={route.element} key={route.id} />
+        ))
+      }
     </Routes>
   );
 };

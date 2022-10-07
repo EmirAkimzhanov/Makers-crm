@@ -1,15 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import "./user-detail-info.css";
+import { useNavigate, useParams } from "react-router-dom";
+import { fetchDetail } from "../../store/actions/detailAction";
+import { useAppSelector, useAppDispatch } from "../../hooks";
 
 const UserDetailinfo = () => {
+  const dispatch = useAppDispatch();
+
+  const { id } = useParams();
+
+  console.log(id);
+
+  useEffect(() => {
+    dispatch(fetchDetail(id!));
+  }, []);
+
+  const data = useAppSelector((state) => state);
+  let bd = data.user.userDetail;
+  console.log(data);
+
+  // bd.map((e) => {R
+  //   console.log(e.name);
+  // });
+
   return (
     <div className="user-detail-block">
       <div className="detail-info-paper">
         <div className="detail-info-paper-left-side">
-          <p className="left-side-text">Azret M.</p>
-          <p className="left-side-text-details">Mentor</p>
-          <p className="left-side-text-details">Rofler</p>
-          <p className="left-side-text-details">Playboy</p>
-          <p className="left-side-text-details">Philantrop</p>
+          <p className="left-side-text">{bd.name}</p>
+          <p className="left-side-text">{bd.surname}</p>
+          <p className="left-side-text-details">{bd.status}</p>
+          <p className="left-side-text-details">{bd.language}</p>
         </div>
         <div className="detail-info-paper-right-side">
           <div className="right-side-profile"></div>

@@ -14,7 +14,6 @@ html {
   position: relative;
   width: 80%;
   height: 100%;
-  /* border: 3px solid #e2e2e2; */
   display: flex;
   justify-content: flex-end;
   padding-left: 15%;
@@ -22,7 +21,8 @@ html {
 .main_left-box {
   width: 20%;
   height: 100%;
-  position: fixed;
+
+  position: absolute;
   border-right: 3px solid #e2e2e2;
 }
 .main_left-box-content {
@@ -41,12 +41,12 @@ html {
   height: 100%;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow: auto;
 }
 .main_right-box-head-text {
   padding-top: 2vw;
   font-size: 3vw;
-
+  padding-bottom: 2vw;
   color: #ffa86a;
 }
 .main_right-box-mentor-content {
