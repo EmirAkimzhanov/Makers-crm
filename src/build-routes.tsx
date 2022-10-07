@@ -1,11 +1,8 @@
-import React from "react";
+import { IRouteType } from "src/@types/route";
 import { Route, Routes } from "react-router-dom";
-import UsersPage from "./components/user-page/user-page";
-
-import { IRouteType } from "src/@types/routeTypes";
-import HomePage from "./components/home-page/home-page";
-import Navbar from "./components/navbar/navbar";
+import UsersPage from "./components/user-page";
 import UserDetailinfo from "./components/user-page-details";
+import HomePage from "./components/home-page";
 
 const BuildRoutes = () => {
   const routes: IRouteType[] = [
