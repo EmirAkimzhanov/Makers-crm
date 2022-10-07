@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import BuildRoutes from "./BuildRoutes";
+import BuildRoutes from "./build-routes";
 import Navbar from "./components/navbar/navbar";
 import { store } from "./store/store";
 import "./index.css";

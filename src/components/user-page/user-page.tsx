@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchUsers } from "../../store/actions/userAction";
-import { useAppSelector, useAppDispatch } from '../../hooks';
-import { fetchRooms } from "../../store/actions/roomAction";
+import { fetchUsers } from "../../store/actions/user";
+import { useAppSelector, useAppDispatch } from "../../hooks";
+import { fetchRooms } from "../../store/actions/room";
 import withError from "../../hoc-components/hoc-error";
 import "./user-page.css";
 
@@ -10,13 +10,12 @@ const UsersPage = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  useEffect(()=>{
-    dispatch(fetchRooms())
-    dispatch(fetchUsers())
-  },[])
+  useEffect(() => {
+    dispatch(fetchRooms());
+    dispatch(fetchUsers());
+  }, []);
 
-
-  const data= useAppSelector(state => state)
+  const data = useAppSelector((state) => state);
   console.log(data);
 
   return (
@@ -40,8 +39,7 @@ const UsersPage = () => {
           <h1 className="main_right-box-head-text">Менторы</h1>
           <div
             className="main_right-box-mentor-content"
-            onClick={() => navigate("/users/1")}
-          >
+            onClick={() => navigate("/users/1")}>
             <div className="profile"></div>
             <p className="mentors-name">Azret M.</p>
           </div>
@@ -75,4 +73,4 @@ const UsersPage = () => {
   );
 };
 
-export default withError(UsersPage)
+export default withError(UsersPage);
