@@ -1,16 +1,26 @@
-import React from "react";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useAppSelector, useAction } from "../../hooks";
 import "./user-detail-info.css";
 
 const UserDetailinfo = () => {
+  const { fetchDetail } = useAction();
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetchDetail(id!);
+  }, [id]);
+
+  const { userDetail: user } = useAppSelector((state) => state.user);
+
   return (
     <div className="user-detail-block">
       <div className="detail-info-paper">
         <div className="detail-info-paper-left-side">
-          <p className="left-side-text">Azret M.</p>
-          <p className="left-side-text-details">Mentor</p>
-          <p className="left-side-text-details">Rofler</p>
-          <p className="left-side-text-details">Playboy</p>
-          <p className="left-side-text-details">Philantrop</p>
+          <p className="left-side-text">{user.name}</p>
+          <p className="left-side-text">{user.surname}</p>
+          <p className="left-side-text-details">{user.status}</p>
+          <p className="left-side-text-details">{user.language}</p>
         </div>
         <div className="detail-info-paper-right-side">
           <div className="right-side-profile"></div>
