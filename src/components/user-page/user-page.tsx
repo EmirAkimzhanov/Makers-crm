@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchUsers } from "../../store/actions/user";
-import { useAppSelector, useAppDispatch } from "../../hooks";
+import { useAppSelector, useAppDispatch, useAction } from "../../hooks";
 import { fetchRooms } from "../../store/actions/room";
 import withError from "../../hoc-components/hoc-error";
 import "./user-page.css";
 
 const UsersPage = () => {
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
+  const navigate = useNavigate()
+ const {fetchUsers, fetchRooms}= useAction();
 
   useEffect(() => {
-    dispatch(fetchRooms());
-    dispatch(fetchUsers());
+    fetchRooms();
+    fetchUsers();
   }, []);
 
   const data = useAppSelector((state) => state);

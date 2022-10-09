@@ -30,5 +30,10 @@ nav ul li:hover {
 
 .nav-logo {
   cursor: pointer;
+  transition: 200ms;
+}
+
+.nav-logo:hover {
+  scale: 1.1;
 }
 
