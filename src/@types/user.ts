@@ -3,14 +3,21 @@ export interface IUser {
   id: number;
   name: string;
   phone: string;
-  username: string;
+  surname: string;
   website: string;
+  results?: [];
 }
 export interface IUserDetail {
   name: string;
   id: number;
-  surname: string;
-  status: string;
-  language: string;
+  last_name: string;
+  direction: string;
+  staff_position: string;
   website: string;
+}
+export interface IUserSecond {
+  count: number;
+  next: null;
+  previous: null;
+  results: [];
 }

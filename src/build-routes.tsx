@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import UsersPage from "./components/user-page";
 import UserDetailinfo from "./components/user-page-details";
 import HomePage from "./components/home-page";
+import LoginPage from "./components/navbar/login-page/login";
 
 const BuildRoutes = () => {
   const routes: IRouteType[] = [
@@ -20,6 +21,11 @@ const BuildRoutes = () => {
       link: "/users/:id",
       element: <UserDetailinfo />,
       id: 3,
+    },
+    {
+      link: "/login",
+      element: <LoginPage />,
+      id: 4,
     },
   ];
 

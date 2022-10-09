@@ -60,6 +60,8 @@ html {
   margin-bottom: 51px;
 }
 .profile {
+  margin-top: 20px;
+  margin-bottom: 20px;
   width: 6vw;
   height: 6vw;
   background-color: #ffa86a;
