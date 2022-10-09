@@ -15,7 +15,7 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Navbar />
-      <UserPage />
+
       <SideBar />
       <BuildRoutes />
     </BrowserRouter>

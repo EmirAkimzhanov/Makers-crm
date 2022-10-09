@@ -13,40 +13,38 @@ const UserDetailinfo = () => {
 
   const { userDetail: user } = useAppSelector((state) => state.user);
 
+  console.log(user);
+
   return (
     <div className="user-detail-block">
       <div className="detail-info-paper">
         <div className="detail-info-paper-left-side">
-          <p className="left-side-text">{user.name}</p>
-          <p className="left-side-text">{user.surname}</p>
-          <p className="left-side-text-details">{user.status}</p>
-          <p className="left-side-text-details">{user.language}</p>
+          <div className="right-side-profile"></div>
+          <p className="left-side-text">
+            {user.name} {user.last_name}
+          </p>
+          <p className="left-side-text-details">Язык:{user.direction}</p>
+          <p className="left-side-text-details">Статус:{user.staff_position}</p>
         </div>
         <div className="detail-info-paper-right-side">
-          <div className="right-side-profile"></div>
-          <p className="right-side-text">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto
-            repudiandae perspiciatis autem omnis error! Ab?
-          </p>
           <div className="right-side-cards">
-            <div className="card">
-              <div className="card-inside">
-                <p className="card-header">Mentor</p>
+            <div className="first-block">Информация о стажировке</div>
+            <div className="first-next-block">Информация о трекерстве</div>
+            <div className="second-block">Информация о менторстве</div>
+            <div className="third-block">Заметки</div>
+            <div className="third-block">
+              Навыки
+              <div className="container">
+                <div className="skills html"></div>
               </div>
-              <p>JS25</p>
-            </div>
-            <div className="card">
-              <div className="card-inside">
-                <p className="card-header">Tracker</p>
+              <div className="container">
+                <div className="skills html"></div>
               </div>
-              <p>JS27</p>
-            </div>
-            <div className="card">
-              <div className="card-inside">
-                <p className="card-header">Rofler</p>
+              <div className="container">
+                <div className="skills html"></div>
               </div>
-              <p>office</p>
             </div>
+            <div className="second-block">Детали контракта</div>
           </div>
         </div>
       </div>
