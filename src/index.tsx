@@ -15,9 +15,12 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Navbar />
-      <UserPage />
-      <SideBar />
-      <BuildRoutes />
+      <div className="main-container">
+        <SideBar />
+        <div className="main-container-right">
+          <BuildRoutes />
+        </div>
+      </div>
     </BrowserRouter>
   </Provider>
 );

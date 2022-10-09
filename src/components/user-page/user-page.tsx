@@ -19,7 +19,7 @@ const UsersPage = () => {
 
   return (
     <>
-      {/* <div className="main">
+      <div className="main">
         <div className="main_right-box">
           <h1 className="main_right-box-head-text">Менторы</h1>
           {users.map((e, i) => {
@@ -38,7 +38,7 @@ const UsersPage = () => {
             );
           })}
         </div>
-      </div> */}
+      </div>
     </>
   );
 };

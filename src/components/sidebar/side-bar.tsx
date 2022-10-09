@@ -26,7 +26,7 @@ const SideBar = () => {
               style={{
                 border: "none",
                 backgroundColor: "white",
-                fontSize: "2.5vw",
+                fontSize: "inherit",
                 color: "#7e7e7e",
               }}
               onClick={() => {

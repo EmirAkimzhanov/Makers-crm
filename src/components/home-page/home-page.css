@@ -8,6 +8,7 @@
 
 .home-container {
   max-width: 900px;
+  width: 800%;
   height: 100vh;
   display: flex;
   flex-direction: column;
