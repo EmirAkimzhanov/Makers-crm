@@ -8,12 +8,12 @@ const SideBar = () => {
   const navigate = useNavigate();
 
   const fetchByParams = (key: string, value: string) => {
-    console.log(key, value);
-
-    search.set(key, value);
+    if (value == "all") {
+      search.delete(key);
+    } else {
+      search.set(key, value);
+    }
     let newPath = `${window.location.pathname}?${search.toString()}`;
-    console.log(newPath, "newPath");
-
     navigate(newPath);
     fetchUsers();
   };
@@ -26,24 +26,72 @@ const SideBar = () => {
               style={{
                 border: "none",
                 backgroundColor: "white",
-                fontSize: "2.5vw",
+                fontSize: "1.5vw",
                 color: "#7e7e7e",
               }}
               onClick={() => {
-                fetchByParams("status", "Mentor");
-              }}>
+                navigate("users");
+                fetchByParams("staff_postiton", "all");
+              }}
+            >
+              Все сотрудники
+            </button>
+          </p>
+        </div>
+        <div className="main_left-box-content">
+          <p className="main_left-box-content-text">
+            <button
+              style={{
+                border: "none",
+                backgroundColor: "white",
+                fontSize: "1.5vw",
+                color: "#7e7e7e",
+              }}
+              onClick={() => {
+                navigate("users");
+                fetchByParams("staff_position", "Mentor");
+              }}
+            >
               Mенторы
             </button>
           </p>
         </div>
         <div className="main_left-box-content">
-          <p className="main_left-box-content-text">кураторы</p>
+          <p className="main_left-box-content-text">
+            <button
+              style={{
+                border: "none",
+                backgroundColor: "white",
+                fontSize: "1.5vw",
+                color: "#7e7e7e",
+              }}
+              onClick={() => {
+                navigate("users");
+                fetchByParams("staff_position", "Tracker");
+              }}
+            >
+              Трекеры
+            </button>
+          </p>
         </div>
+
         <div className="main_left-box-content">
-          <p className="main_left-box-content-text">смм</p>
-        </div>
-        <div className="main_left-box-content">
-          <p className="main_left-box-content-text">продажи</p>
+          <p className="main_left-box-content-text">
+            <button
+              style={{
+                border: "none",
+                backgroundColor: "white",
+                fontSize: "1.5vw",
+                color: "#7e7e7e",
+              }}
+              onClick={() => {
+                navigate("users");
+                fetchByParams("staff_position", "Curator");
+              }}
+            >
+              Кураторы
+            </button>
+          </p>
         </div>
       </div>
     </div>
