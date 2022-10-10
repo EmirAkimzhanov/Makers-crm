@@ -47,7 +47,7 @@ const SideBar = () => {
 
         <div className="main_left-box-content" onClick={() => {
                 navigate("users");
-                fetchByParams("staff_position", "Kurator");
+                fetchByParams("staff_position", "Curator");
               }}>
           <p className="main_left-box-content-text">
               Кураторы

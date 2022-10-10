@@ -7,6 +7,7 @@ import { store } from "./store/store";
 import BuildRoutes from "./build-routes";
 import "./index.css";
 import UserPage from "./components/user-page";
+import LoginPage from "./components/navbar/login-page/login";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -15,12 +16,18 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Navbar />
+
+      {
+        localStorage.getItem('token') ? 
       <div className="main-container">
         <SideBar />
         <div className="main-container-right">
           <BuildRoutes />
         </div>
       </div>
+      :
+      <LoginPage/>
+      }
     </BrowserRouter>
   </Provider>
 );

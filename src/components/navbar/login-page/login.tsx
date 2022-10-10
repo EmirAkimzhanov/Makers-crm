@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import { adminLogin } from "src/functions/login";
+import { adminLogin } from "src/functions/login";
 
 const LoginPage = () => {
   const API = "http://34.69.243.149/";
