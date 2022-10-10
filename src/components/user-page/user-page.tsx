@@ -22,7 +22,10 @@ const UsersPage = () => {
       <div className="main">
         <div className="main_right-box">
           <h1 className="main_right-box-head-text">Менторы</h1>
-          {results.map((e: any, i) => {
+          <div className="main_right-box-switcher">
+            JS PY filter here
+          </div>
+          {results?.map((e: any, i: any) => {
             return (
               <>
                 <div
@@ -33,6 +36,9 @@ const UsersPage = () => {
                   <div className="profile"></div>
                   <p className="mentors-name">
                     {e.name} {e.last_name}
+                  </p>
+                  <p className="mentors-direction">
+                    {e.direction}
                   </p>
                 </div>
               </>

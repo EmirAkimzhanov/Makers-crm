@@ -7,52 +7,61 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: auto;
-  padding-left: 23%;
 }
 .detail-info-paper {
   width: 90%;
   height: 100%;
-  margin: 5%;
-  border-radius: 20px;
-  box-shadow: 0 5px 10px rgb(0 0 0 / 0.5);
-  background-color: #f5f5f5;
+  margin: 3% 0;
+  /* background-color: #f5f5f5; */
   display: flex;
 }
 .detail-info-paper-left-side {
   width: 30%;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
   height: 100%;
-  background-color: #ffa86a;
 }
 .left-side-text {
-  font-size: 2.5vw;
-  color: #f5f5f5;
+  margin: 20px 0;
+  font-size: 2em;
+  font-weight: 600;
   text-align: start;
-  margin-left: 3%;
 }
 .left-side-text-details {
-  margin-left: 3%;
-  font-size: 1.6vw;
-  color: #f5f5f5;
+  font-size: 1.2em;
   text-align: start;
+  color: #7e7e7e;
 }
+
+.left-side-text-details strong {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.left-side-text-details strong:hover {
+  text-decoration: underline;
+  color: #ffa86a;
+}
+
 .detail-info-paper-right-side {
   width: 70%;
   height: 100%;
   display: flex;
   /* justify-content: center; */
   align-items: center;
+  justify-content: flex-start;
   flex-direction: column;
 }
+
 .right-side-profile {
   width: 70%;
   height: 30%;
-  margin: 5% auto;
-  background-color: #f5f5f5;
-  border-radius: 50%;
+  background: url('../../../public/images/Agay.jpg');
+  background-position: center;
+  background-size: cover;
+  border-radius: 15px;
 }
+
 .right-side-text {
   font-size: 2vw;
   padding: 5%;
@@ -60,43 +69,67 @@
   color: #7e7e7e;
 }
 .first-block {
-  background-color: #ffa86a;
-  color: white;
+  box-shadow: 0 0px 35px 1px rgb(0 0 35 / 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 45%;
   height: 20%;
+  color:#7e7e7e;
   margin: 0 auto;
   border-radius: 15px;
-  margin-top: 5%;
 }
 .first-next-block {
   background-color: white;
-  border: 3px solid #ffa86a;
+  box-shadow: 0 0px 35px 1px rgb(0 0 35 / 0.2);
   color: #7e7e7e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 45%;
   height: 20%;
   margin: 0 auto;
   border-radius: 15px;
-  margin-top: 5%;
 }
 .second-block {
   background-color: white;
-  border: 3px solid #ffa86a;
+  box-shadow: 0 0px 35px 1px rgb(0 0 35 / 0.2);
   color: #7e7e7e;
   width: 30%;
   height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
   border-radius: 15px;
-  margin-top: 5%;
+  margin-top: 4%;
 }
 .third-block {
-  background-color: #ffa86a;
-  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0px 35px 1px rgb(0 0 35 / 0.2);
+  color: #7e7e7e;
   width: 60%;
   height: 30%;
   margin: 0 auto;
   border-radius: 15px;
-  margin-top: 5%;
+  margin-top: 4%;
 }
+
+.third-block-skills {
+  display: flex;
+  box-shadow: 0 0px 35px 1px rgb(0 0 35 / 0.2);
+  flex-direction: column;
+  justify-content: center;
+  color: #7e7e7e;
+  width: 60%;
+  height: 30%;
+  margin: 0 auto;
+  border-radius: 15px;
+  margin-top: 4%;
+}
+
 .right-side-cards {
   display: flex;
   flex-direction: row;
@@ -106,23 +139,24 @@
   align-content: flex-start;
 }
 .container {
-  margin: 5% auto;
+  margin: 3% auto;
   width: 80%; /* Full width */
   border-radius: 15px;
-  height: 1.5vw;
-  background-color: #ddd; /* Grey background */
+  height: 10%;
+  background-color: #ffa86a; /* Grey background */
 }
 
 .skills {
   text-align: right; /* Right-align text */
-  padding-top: 10px; /* Add top padding */
-  padding-bottom: 10px; /* Add bottom padding */
-  color: white; /* White text color */
   border-radius: 15px;
-  height: 1.5vw;
+  height: 100%;
+  color: #7e7e7e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .html {
   width: 90%;
-  background-color: white;
+  background-color: #ffc297;
 }
