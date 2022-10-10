@@ -23,8 +23,8 @@ const UserDetailinfo = () => {
           <p className="left-side-text">
             {user.name} {user.last_name}
           </p>
-          <p className="left-side-text-details">Язык:{user.direction}</p>
-          <p className="left-side-text-details">Статус:{user.staff_position}</p>
+          <p className="left-side-text-details">Язык: <strong>{user.direction}</strong></p>
+          <p className="left-side-text-details">Статус: <strong>{user.staff_position}</strong></p>
         </div>
         <div className="detail-info-paper-right-side">
           <div className="right-side-cards">
@@ -32,7 +32,7 @@ const UserDetailinfo = () => {
             <div className="first-next-block">Информация о трекерстве</div>
             <div className="second-block">Информация о менторстве</div>
             <div className="third-block">Заметки</div>
-            <div className="third-block">
+            <div className="third-block-skills">
               Навыки
               <div className="container">
                 <div className="skills html"></div>

@@ -20,77 +20,37 @@ const SideBar = () => {
   return (
     <div>
       <div className="main_left-box">
-        <div className="main_left-box-content">
-          <p className="main_left-box-content-text">
-            <button
-              style={{
-                border: "none",
-                backgroundColor: "white",
-                fontSize: "1.5vw",
-                color: "#7e7e7e",
-              }}
-              onClick={() => {
+        <div className="main_left-box-content" onClick={() => {
                 navigate("users");
-                fetchByParams("staff_postiton", "all");
-              }}
-            >
+                fetchByParams("staff_position", "all");
+              }}>
+          <p className="main_left-box-content-text">
               Все сотрудники
-            </button>
           </p>
         </div>
-        <div className="main_left-box-content">
-          <p className="main_left-box-content-text">
-            <button
-              style={{
-                border: "none",
-                backgroundColor: "white",
-                fontSize: "1.5vw",
-                color: "#7e7e7e",
-              }}
-              onClick={() => {
+        <div className="main_left-box-content" onClick={() => {
                 navigate("users");
                 fetchByParams("staff_position", "Mentor");
-              }}
-            >
+              }}>
+          <p className="main_left-box-content-text">            
               Mенторы
-            </button>
           </p>
         </div>
-        <div className="main_left-box-content">
-          <p className="main_left-box-content-text">
-            <button
-              style={{
-                border: "none",
-                backgroundColor: "white",
-                fontSize: "1.5vw",
-                color: "#7e7e7e",
-              }}
-              onClick={() => {
+        <div className="main_left-box-content" onClick={() => {
                 navigate("users");
                 fetchByParams("staff_position", "Tracker");
-              }}
-            >
-              Трекеры
-            </button>
+              }}>
+          <p className="main_left-box-content-text">
+            Трекеры
           </p>
         </div>
 
-        <div className="main_left-box-content">
-          <p className="main_left-box-content-text">
-            <button
-              style={{
-                border: "none",
-                backgroundColor: "white",
-                fontSize: "1.5vw",
-                color: "#7e7e7e",
-              }}
-              onClick={() => {
+        <div className="main_left-box-content" onClick={() => {
                 navigate("users");
-                fetchByParams("staff_position", "Curator");
-              }}
-            >
+                fetchByParams("staff_position", "Kurator");
+              }}>
+          <p className="main_left-box-content-text">
               Кураторы
-            </button>
           </p>
         </div>
       </div>

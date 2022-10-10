@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAction, useAppSelector } from "../../hooks";
+import { fetchUsers } from "../../store/actions/user";
+import { useAppSelector, useAppDispatch, useAction } from "../../hooks";
+import { fetchRooms } from "../../store/actions/room";
 import withError from "../../hoc-components/hoc-error";
 import "./user-page.css";
 
@@ -10,8 +12,8 @@ const UsersPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchUsers();
     fetchRooms();
+    fetchUsers();
   }, []);
   console.log(users.results);
   const { results } = users;
@@ -20,7 +22,10 @@ const UsersPage = () => {
       <div className="main">
         <div className="main_right-box">
           <h1 className="main_right-box-head-text">Менторы</h1>
-          {results.map((e: any, i) => {
+          <div className="main_right-box-switcher">
+            JS PY filter here
+          </div>
+          {results?.map((e: any, i: any) => {
             return (
               <>
                 <div
@@ -31,6 +36,9 @@ const UsersPage = () => {
                   <div className="profile"></div>
                   <p className="mentors-name">
                     {e.name} {e.last_name}
+                  </p>
+                  <p className="mentors-direction">
+                    {e.direction}
                   </p>
                 </div>
               </>
