@@ -35,7 +35,7 @@ const UsersPage = () => {
                 >
                   <div className="profile"></div>
                   <p className="mentors-name">
-                    {e.name} {e.last_name}
+                    {e.name} <span>{e.last_name}</span>
                   </p>
                   <p className="mentors-direction">
                     {e.direction}
