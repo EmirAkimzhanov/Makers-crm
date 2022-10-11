@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 
@@ -13,7 +12,7 @@ const Navbar = () => {
         </div>
         <ul className="nav-links">
           <li>
-            <Link to="/users">users</Link>
+            <Link to="/users/">users</Link>
           </li>
           <li>
             <Link to="/rooms">rooms</Link>
@@ -22,8 +21,7 @@ const Navbar = () => {
             <Link
               to="/login"
               data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-            >
+              data-bs-target="#exampleModal">
               login
             </Link>
           </li>

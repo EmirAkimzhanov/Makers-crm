@@ -5,13 +5,12 @@ import "./user-detail-info.css";
 
 const UserDetailinfo = () => {
   const { fetchDetail } = useAction();
+  const { userDetail: user } = useAppSelector((state) => state.user);
   const { id } = useParams();
 
   useEffect(() => {
-    fetchDetail(id!);
+    if (id) fetchDetail(id);
   }, [id]);
-
-  const { userDetail: user } = useAppSelector((state) => state.user);
 
   console.log(user);
 
@@ -23,8 +22,12 @@ const UserDetailinfo = () => {
           <p className="left-side-text">
             {user.name} {user.last_name}
           </p>
-          <p className="left-side-text-details">Язык: <strong>{user.direction}</strong></p>
-          <p className="left-side-text-details">Статус: <strong>{user.staff_position}</strong></p>
+          <p className="left-side-text-details">
+            Язык: <strong>{user.direction}</strong>
+          </p>
+          <p className="left-side-text-details">
+            Статус: <strong>{user.staff_position}</strong>
+          </p>
         </div>
         <div className="detail-info-paper-right-side">
           <div className="right-side-cards">

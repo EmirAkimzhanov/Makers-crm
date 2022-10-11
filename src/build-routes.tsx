@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import UsersPage from "./components/user-page";
 import UserDetailinfo from "./components/user-page-details";
 import HomePage from "./components/home-page";
-import LoginPage from "./components/navbar/login-page/login";
+import LoginPage from "./components/login-page/login";
 
 const BuildRoutes = () => {
   const routes: IRouteType[] = [
