@@ -6,28 +6,27 @@ import SideBar from "./components/sidebar/side-bar";
 import { store } from "./store/store";
 import BuildRoutes from "./build-routes";
 import "./index.css";
-import UserPage from "./components/user-page";
-import LoginPage from "./components/navbar/login-page/login";
+import LoginPage from "./components/login-page/login";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Navbar />
 
-      {
-        localStorage.getItem('token') ? 
-      <div className="main-container">
-        <SideBar />
-        <div className="main-container-right">
-          <BuildRoutes />
+      {localStorage.getItem("token") ? (
+        <div className="main-container">
+          <SideBar />
+          <div className="main-container-right">
+            <BuildRoutes />
+          </div>
         </div>
-      </div>
-      :
-      <LoginPage/>
-      }
+      ) : (
+        <LoginPage />
+      )}
     </BrowserRouter>
   </Provider>
 );

@@ -6,10 +6,11 @@ import axios from 'axios'
 
 const UserDetailinfo = () => {
   const { fetchDetail } = useAction();
+  const { userDetail: userDetail } = useAppSelector((state) => state.user);
   const { id } = useParams();
 
   useEffect(() => {
-    fetchDetail(id!);
+    if (id) fetchDetail(id);
   }, [id]);
 
   const navigate = useNavigate();

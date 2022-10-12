@@ -8,6 +8,7 @@ export interface IUser {
   results?: [];
 }
 export interface IUserDetail {
+  user:{};
   name: string;
   id: string;
   last_name: string;

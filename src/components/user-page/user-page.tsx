@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchUsers } from "../../store/actions/user";
-import { useAppSelector, useAppDispatch, useAction } from "../../hooks";
-import { fetchRooms } from "../../store/actions/room";
-import withError from "../../hoc-components/hoc-error";
+import { useAppSelector, useAction } from "../../hooks";
 import "./user-page.css";
 import axios from "axios";
 
 const UsersPage = () => {
   
   const { fetchRooms, fetchUsers } = useAction();
-  const { users } = useAppSelector((state) => state.user);
+  const { results } = useAppSelector((state) => state.user.users);
   const navigate = useNavigate();
 
 
@@ -18,8 +15,7 @@ const UsersPage = () => {
     fetchRooms();
     fetchUsers();
   }, []);
-  console.log(users.results);
-  const { results } = users;
+
   return (
     <>
       <div className="main">
