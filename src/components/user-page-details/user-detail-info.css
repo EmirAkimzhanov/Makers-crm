@@ -160,3 +160,20 @@
   width: 90%;
   background-color: #ffc297;
 }
+.delete-btn{
+  width: 5vw;
+  height: 3vw;
+  border-radius: 15px;
+  margin:20px  auto;
+  background-color: #ffa86a;
+  color:white
+}
+.update-btn{
+  width: 5vw;
+
+  height: 3vw;
+  border-radius: 15px;
+  margin:20px 20px auto;
+  background-color: #ffa86a;
+  color:white
+}

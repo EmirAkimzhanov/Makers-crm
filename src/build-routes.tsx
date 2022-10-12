@@ -4,6 +4,8 @@ import UsersPage from "./components/user-page";
 import UserDetailinfo from "./components/user-page-details";
 import HomePage from "./components/home-page";
 import LoginPage from "./components/navbar/login-page/login";
+import AddProduct from "./components/add-product-page/add-product";
+import Update from "./components/update-page/update";
 
 const BuildRoutes = () => {
   const routes: IRouteType[] = [
@@ -26,6 +28,16 @@ const BuildRoutes = () => {
       link: "/login",
       element: <LoginPage />,
       id: 4,
+    },
+    {
+      link: "/add",
+      element: <AddProduct />,
+      id: 5,
+    },
+    {
+      link: "/update/:id",
+      element: <Update />,
+      id: 6,
     },
   ];
 

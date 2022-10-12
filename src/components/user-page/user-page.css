@@ -19,6 +19,24 @@ html {
   display: flex;
   justify-content: center;
 }
+.main-right-box-add {
+  margin-left: 2%;
+  width: 3vw;
+  height: 3vw;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: green;
+  cursor: pointer;
+}
+.add-text {
+  align-self: center;
+  font-size: 2vw;
+  color: #e2e2e2;
+}
+.main_right-box-panel {
+  display: flex;
+}
 
 .main_left-box {
   width: 20vw; /* need add adaptive */
@@ -81,7 +99,7 @@ html {
   width: 100px;
   height: 100%;
   border-radius: 15px 0 0px 15px;
-  background: url('../../../public/images/Agay.jpg');
+  background: url("../../../public/images/Agay.jpg");
   background-position: center;
   background-size: cover;
   align-self: center;

@@ -9,7 +9,7 @@ export interface IUser {
 }
 export interface IUserDetail {
   name: string;
-  id: number;
+  id: string;
   last_name: string;
   direction: string;
   staff_position: string;
