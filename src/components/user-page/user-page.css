@@ -26,13 +26,13 @@ html {
   display: flex;
   justify-content: center;
   border-radius: 50%;
-  background-color: green;
+  background-color:#ffa86a;
   cursor: pointer;
 }
 .add-text {
   align-self: center;
   font-size: 2vw;
-  color: #e2e2e2;
+  color: white;
 }
 .main_right-box-panel {
   display: flex;
