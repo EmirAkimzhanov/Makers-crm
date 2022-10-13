@@ -6,51 +6,29 @@ import { useAppSelector, useAction } from "../../hooks";
 
 const Update = () => {
     const { fetchDetail } = useAction();
-    const { id } = useParams();
+    const { handleReduct } = useAction();
+    const { id} = useParams();
   
     useEffect(() => {
       fetchDetail(id!);
     }, [id]);
   
-
+    
   
   
     const { userDetail: user } = useAppSelector((state) => state.user);
   
     console.log(user);
-    const API = "http://34.69.243.149/";
-    const token = localStorage.getItem("token")
-      ? JSON.parse(localStorage.getItem("token")!)
-      : "";
-    const config = {
-      headers: {
-        "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${token.access}`,
-      },
-    };
+   
     const [updateName, setUpdateName] = useState("");
     const [updateSurname, setUpdateSurname] = useState("");
     const [updatePosition, setUpdatePosition] = useState("");
     
     
-    const handleReduct = async (name: string, surname: string, position: string) => {
-      let formData = new FormData();
-      formData.append("name", name);
-      formData.append("last_name", surname);
-      formData.append("staff_position", position);
-      try {
-        let res = await axios.patch(
-          `${API}staff/staffs/update/${id}/`,
-          formData,
-          config
-        );
-      } catch (error) {
-        console.log(error);
-      }
-    };
-  
+   
+    
     const reduct = () => {
-      handleReduct(updateName, updateSurname, updatePosition);
+      handleReduct(updateName, updateSurname, updatePosition , id!);
     };
   
     return (
