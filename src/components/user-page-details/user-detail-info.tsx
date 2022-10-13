@@ -6,6 +6,7 @@ import axios from 'axios'
 
 const UserDetailinfo = () => {
   const { fetchDetail } = useAction();
+  const { handleDelete } = useAction();
   const { userDetail: userDetail } = useAppSelector((state) => state.user);
   const { id } = useParams();
 
@@ -20,26 +21,7 @@ const UserDetailinfo = () => {
 
   console.log(user);
 
-  const API = "http://34.69.243.149/";
-  const token = localStorage.getItem("token")
-    ? JSON.parse(localStorage.getItem("token")!)
-    : "";
-  const config = {
-    headers: {
-      "Content-Type": "multipart/form-data",
-      Authorization: `Bearer ${token.access}`,
-    },
-  };
-  console.log(token);
-  
-
-  const handleDelete = async (id: string) => {
-    try {
-      let res = await axios.delete(`${API}staff/staffs/delete/${id}/`, config);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+ 
 
   return (
     <div className="user-detail-block">
