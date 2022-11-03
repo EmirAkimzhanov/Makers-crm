@@ -31,12 +31,31 @@ export const fetchUsers = () => async (dispatch: AppDispatch) => {
   };
   try {
     const { data } = await axios(
-      "http://34.69.243.149/staff/staffs/" + window.location.search,
+      `${API}staff/staffs/` + window.location.search,
       config
     );
     dispatch(getAllPeopleSuccess(data));
   } catch (error: any) {
     dispatch(getPeopleFailed(error.message));
+  }
+};
+
+
+export const handleDelete = async (id: string) => {
+  const token = localStorage.getItem("token")
+    ? JSON.parse(localStorage.getItem("token")!)
+    : "";
+  const config = {
+    headers: {
+      "Content-Type": "multipart/form-data",
+      Authorization: `Bearer ${token.access}`,
+    },
+  };
+  console.log(token);
+  try {
+    let res = await axios.delete(`${API}staff/staffs/delete/${id}/`, config);
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -53,7 +72,7 @@ export const fetchDetail = (id: string) => async (dispatch: AppDispatch) => {
 
   try {
     const { data } = await axios(
-      `http://34.69.243.149/staff/staffs/${id}/`,
+      `${API}staff/staffs/${id}/`,
       config
     );
     dispatch(getDetail(data));
