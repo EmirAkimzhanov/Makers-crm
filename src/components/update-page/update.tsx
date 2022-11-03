@@ -7,14 +7,11 @@ import { useAppSelector, useAction } from "../../hooks";
 const Update = () => {
     const { fetchDetail } = useAction();
     const { handleReduct } = useAction();
-    const { id} = useParams();
+    const { id } = useParams();
   
     useEffect(() => {
       fetchDetail(id!);
     }, [id]);
-  
-    
-  
   
     const { userDetail: user } = useAppSelector((state) => state.user);
   
