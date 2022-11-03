@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector, useAction } from "../../hooks";
 import "./user-page.css";
-import axios from "axios";
 
 const UsersPage = () => {
   
@@ -41,7 +40,15 @@ const UsersPage = () => {
                   <p className="mentors-name">
                     {e.name} <span>{e.last_name}</span>
                   </p>
-                  <p className="mentors-direction">{e.direction}</p>
+                  <p className="mentors-direction">{
+                    e.direction == "JS" ?
+                    <img src="/images/JS_logo.png" alt="JS" width="30" />
+                    :
+                    e.direction == "Py" ?
+                    <img src="/images/Python_logo.png" alt="Python" width="30"/>
+                    :
+                    null
+                  }</p>
                 </div>
               </>
             );

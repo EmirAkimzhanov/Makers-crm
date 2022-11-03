@@ -73,7 +73,7 @@ html {
   height: 12vh;
   align-self: center;
   border-radius: 15px;
-  box-shadow: 0 0px 35px 1px rgb(0 0 35 / 0.2);
+  box-shadow: 0 0px 35px 1px rgb(0 0 35 / 0.1);
   display: flex;
   margin-bottom: 20px;
   transition: 200ms;
@@ -114,7 +114,8 @@ html {
 
 .mentors-direction {
   margin: auto 0;
-  margin-left: 50px;
+  margin-left: auto;
+  margin-right: 7%;
   color: #ffa86a;
   font-size: 1.2em;
   font-weight: 600;
