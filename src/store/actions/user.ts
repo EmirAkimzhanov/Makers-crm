@@ -4,6 +4,7 @@ import {
   getAllPeopleSuccess,
   getDetail,
   getFailedAddPeople,
+  getFailedEditPeople,
   getPeopleFailed,
 } from "../slices/users";
 
@@ -99,18 +100,21 @@ export const addNewUser = (name: string, surname: string, position: string) => a
   }
 };
 
-export const handleReduct = async (name: string, surname: string, position: string , id:string) => {
-  let formData = new FormData();
-  formData.append("name", name);
-  formData.append("last_name", surname);
-  formData.append("staff_position", position);
+export const handleReduct = (name: string, surname: string, position: string , id:string) => async (dispatch: AppDispatch) => {
+  let obj = {
+    name,
+    last_name: surname,
+    staff_position: position
+  }
   try {
     let res = await axios.patch(
       `${API}staff/staffs/update/${id}/`,
-      formData,
+      obj,
       config
     );
-  } catch (error) {
+    console.log(res)
+  } catch (error: any) {
+    dispatch(getFailedEditPeople(error.message));
     console.log(error);
   }
 };
