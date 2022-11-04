@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { Component, useState } from "react";
+import React, { Component, useRef, useState } from "react";
 import { useAction } from "../../hooks";
 import {Input, Button} from "../../@UI";
 
@@ -8,10 +8,11 @@ const AddProduct = () => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [position, setPosition] = useState("");
-
+ 
   const create = () => {
     addNewUser(name, surname, position);
   };
+console.log(position);
 
   return (
     <div>
@@ -24,10 +25,14 @@ const AddProduct = () => {
 
           <Input value={name} setValue={setName} />
           <Input value={surname} setValue={setSurname} />
-          <Input value={position} setValue={setPosition} />
+          <select name="dog-names" id="dog-names" onChange={(e)=>setPosition(e.target.value)}>
+              <option value="Mentor" >Mentor</option>
+              <option  value="Curator" >Curator</option>
+              <option value="Tracker" >Tracker</option>
+          </select>
 
-            <div className="flex space-x-2 justify-center">
-              <Button onClick={create}  />
+            <div className="flex space-x-2 justify-center mt-5" >
+              <Button onClick={create} />
             </div>
           </div>
         </div>
