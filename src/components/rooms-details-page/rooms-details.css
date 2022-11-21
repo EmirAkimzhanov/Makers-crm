@@ -1,0 +1,73 @@
+.room-name {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.room-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.header-container {
+  margin: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 65%;
+}
+
+.slots-container {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  flex-wrap: wrap;
+}
+
+.slot {
+  width: 40px;
+  margin: 10px 20px;
+  height: 40px;
+  border-radius: 10px;
+
+  box-shadow: 0 0px 35px 1px rgb(0 0 35 / 0.1);
+  background-color: #ffa86a;
+}
+
+.header-elem {
+  font-size: 3.5vmin;
+  font-weight: 600;
+}
+
+.day-night_filter {
+  display: flex;
+  width: 100px;
+  height: 30px;
+  background-color: rgb(174, 174, 174);
+  box-shadow: 0 0px 35px 1px rgb(0 0 35 / 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.switch {
+  width: 50%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: 100ms;
+  cursor: pointer;
+}
+
+.day {
+  margin-left: 0;
+}
+
+.evening {
+  margin-left: 50%;
+}
+
+.switch:hover {
+  background-color: rgb(231, 231, 231);
+}

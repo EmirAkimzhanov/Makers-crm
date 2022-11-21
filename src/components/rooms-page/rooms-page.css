@@ -1,0 +1,132 @@
+.rooms-container {
+  width: 90%;
+  height: 80vh;
+  margin: 2vh 0;
+}
+
+.floor-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border: 1px solid lightgray;
+}
+
+.rooms-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.gay {
+  background-image: linear-gradient(to left, violet, indigo, blue, green, rgb(199, 199, 0), rgb(255, 145, 0), red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.floor-change-btn {
+  margin-top: 10px;
+  padding: 6px 20px;
+  background-color: white;
+  color: black;
+  transition: 150ms;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.floor-change-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.floor-leftside {
+  display: flex;
+  width: 100%;
+  height: 37%;
+}
+
+.floor-rightside {
+  display: flex;
+  width: 100%;
+  height: 37%;
+}
+
+.room {
+  border: 1px solid lightgray;
+  height: 100%;
+  background-color: rgb(228, 228, 228);
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.room:hover {
+  scale: 1.05;
+  background-color: rgb(241, 241, 241);
+}
+
+.meeting {
+  width: 10%;
+}
+
+.room24 {
+  width: 30%;
+}
+
+.room22 {
+  width: 35%;
+}
+
+.aqua {
+  width: 25%;
+}
+
+.production {
+  width: 15%;
+}
+
+.studio {
+  width: 25%;
+}
+
+.room14 {
+  width: 30%;
+}
+
+.room18 {
+  width: 30%;
+}
+
+.kitchen {
+  width: 35%;
+}
+
+.sales {
+  width: 15%;
+}
+
+.room1 {
+  width: 25%;
+}
+
+.room4 {
+  width: 25%;
+}
+
+.room11 {
+  width: 10%;
+}
+
+.room9 {
+  width: 50%;
+}
+
+.room8 {
+  width: 10%;
+}
+
+.updateside {
+  justify-content: flex-end;
+}
