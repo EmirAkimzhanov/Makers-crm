@@ -49,6 +49,7 @@ html {
   border-bottom: 1px solid #e2e2e2;
   display: flex;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
   transition: 200ms;
 }
@@ -132,4 +133,9 @@ html {
 
 .main_left-box-content:hover {
   background-color: #ececec;
+}
+
+.active {
+  color: #ffa86a;
+  font-weight: 700;
 }

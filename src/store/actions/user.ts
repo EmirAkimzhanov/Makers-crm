@@ -8,7 +8,7 @@ import {
   getPeopleFailed,
 } from "../slices/users";
 
-const API = "http://34.69.243.149/";
+const API = "http://35.184.247.17/";
 
 const token = localStorage.getItem("token")
   ? JSON.parse(localStorage.getItem("token")!)

@@ -1,4 +1,4 @@
-import { getAllRooms, getAllRoomsFailed, roomsReducer } from "./rooms";
+// import { getAllRooms, getAllRoomsFailed, roomsReducer } from "./rooms";
 import {
   getAllPeopleSuccess,
   getDetail,
@@ -9,11 +9,11 @@ import {
 
 export {
   getAllPeopleSuccess,
-  getAllRooms,
-  getAllRoomsFailed,
+  // getAllRooms,
+  // getAllRoomsFailed,
   getDetail,
   getOnePeople,
   getPeopleFailed,
-  roomsReducer,
+  // roomsReducer,
   userReducer,
 };

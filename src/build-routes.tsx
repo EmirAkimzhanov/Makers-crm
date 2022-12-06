@@ -6,6 +6,8 @@ import HomePage from "./components/home-page";
 import LoginPage from "./components/login-page/login";
 import AddProduct from "./components/add-product-page/add-product";
 import Update from "./components/update-page/update";
+import RoomsPage from "./components/rooms-page";
+import RoomsDetails from "./components/rooms-details-page";
 
 const BuildRoutes = () => {
   const routes: IRouteType[] = [
@@ -39,6 +41,16 @@ const BuildRoutes = () => {
       element: <Update />,
       id: 6,
     },
+    {
+      link: "/rooms",
+      element: <RoomsPage />,
+      id: 7,
+    },
+    {
+      link: "/rooms/:id",
+      element: <RoomsDetails />,
+      id: 8,
+    }
   ];
 
   return (
