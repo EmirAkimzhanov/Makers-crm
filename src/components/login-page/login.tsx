@@ -5,7 +5,7 @@ import styles from "./style";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const API = "http://34.69.243.149/";
+  const API = "http://35.184.247.17/";
   const [isUser, setIsUser] = useState({
     username: "",
     password: "",

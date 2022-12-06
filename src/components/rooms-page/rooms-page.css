@@ -20,6 +20,7 @@
   align-items: center;
   width: 100%;
   margin: 0 auto;
+  position: relative;
 }
 
 .gay {
@@ -57,7 +58,7 @@
 .room {
   border: 1px solid lightgray;
   height: 100%;
-  background-color: rgb(228, 228, 228);
+  background-color: rgb(245, 245, 245);
   cursor: pointer;
   transition: 200ms;
 }
@@ -129,4 +130,51 @@
 
 .updateside {
   justify-content: flex-end;
+}
+
+.floor-name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.day-night_filter {
+  display: flex;
+  width: 80px;
+  height: 30px;
+  background-color: rgb(174, 174, 174);
+  box-shadow: 0 0px 35px 1px rgb(0 0 35 / 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.switch {
+  width: 50%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: 200ms;
+  cursor: pointer;
+}
+
+.day {
+  margin-left: 0;
+}
+
+.evening {
+  margin-left: 50%;
+}
+
+.switch:hover {
+  background-color: rgb(231, 231, 231);
+}
+
+.rooms-page-header {
+  display: flex;
+  align-items: center;
+}
+
+.room-info {
+  margin: 20px 0;
+  font-weight: 600;
+  color: #ffa86a;
 }

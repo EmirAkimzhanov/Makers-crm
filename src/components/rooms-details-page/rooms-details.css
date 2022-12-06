@@ -31,7 +31,6 @@
   margin: 10px 20px;
   height: 40px;
   border-radius: 10px;
-
   box-shadow: 0 0px 35px 1px rgb(0 0 35 / 0.1);
   background-color: #ffa86a;
 }
@@ -43,7 +42,7 @@
 
 .day-night_filter {
   display: flex;
-  width: 100px;
+  width: 80px;
   height: 30px;
   background-color: rgb(174, 174, 174);
   box-shadow: 0 0px 35px 1px rgb(0 0 35 / 0.1);
@@ -56,7 +55,7 @@
   height: 100%;
   background-color: #fff;
   border-radius: 10px;
-  transition: 100ms;
+  transition: 200ms;
   cursor: pointer;
 }
 
@@ -70,4 +69,27 @@
 
 .switch:hover {
   background-color: rgb(231, 231, 231);
+}
+
+.room-staff {
+  margin-top: 50px;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.room-staff h2 {
+  font-size: 20px;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.staff-names {
+  color:#ffa86a;
+  cursor: pointer;
+}
+
+.staff-names:hover {
+  text-decoration: underline;
 }
