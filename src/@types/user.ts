@@ -15,6 +15,14 @@ export interface IUserDetail {
   direction: string;
   staff_position: string;
   website: string;
+  end_of_training:string;
+  start_of_training:string;
+  mentor_status_day:boolean;
+  mentor_status_evening:boolean;
+  notes:string;
+  plans_to_leave:string;
+  staff_rank:string;
+  tracker_experience:string;
 }
 export interface IUserSecond {
   count: number;

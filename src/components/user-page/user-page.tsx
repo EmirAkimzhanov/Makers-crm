@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "src/@UI";
 import { useAppSelector, useAction } from "../../hooks";
 import "./user-page.css";
 
@@ -8,12 +9,27 @@ const UsersPage = () => {
   const { fetchRooms, fetchUsers } = useAction();
   const { results } = useAppSelector((state) => state.user.users);
   const navigate = useNavigate();
-
+  const [direction , setDirection] = useState('JS');
+  const [display , setDisplay] = useState('none')
+console.log(results);
 
   useEffect(() => {
     fetchRooms();
     fetchUsers();
   }, []);
+  const search = new URLSearchParams(window.location.pathname);
+
+  const fetchByParams = (key: string, value: string) => {
+    
+    if (value === "all") {
+      search.delete(key);
+    } else {
+      search.set(key, value);
+    }
+    let newPath = `${window.location.pathname}?${search.toString()}`;
+    navigate(newPath);
+    fetchUsers();
+  };
 
   return (
     <>
@@ -21,7 +37,22 @@ const UsersPage = () => {
         <div className="main_right-box">
           <h1 className="main_right-box-head-text">Менторы</h1>
           <div className="main_right-box-panel">
-            <div className="main_right-box-switcher">JS PY filter here</div>
+            <button onClick={() => {
+              fetchByParams("direction", "JS");
+              setDisplay('block');
+            }} className="main_right-box-switcher">Direction</button>
+            <div className="filter" style={{display:`${display}`}}>
+              <div style={{display:"flex" , flexDirection:"column"}}>
+              <button onClick={()=>{
+                fetchByParams("direction", "JS");
+                setDisplay('none')
+                } } className="filter-btn">JS</button>
+              <button onClick={()=>{
+                fetchByParams("direction", "Py");
+                setDisplay('none')
+                } } className="filter-btn">Py</button>
+              </div>
+            </div>
             <div className="main-right-box-add">
               <p className="add-text" onClick={() => navigate("/add")}>
                 +
@@ -30,9 +61,9 @@ const UsersPage = () => {
           </div>
           {results?.map((e: any, i: any) => {
             return (
-              <>
+              
                 <div
-                  key={e.id + i}
+                  key={e.id}
                   className="main_right-box-mentor-content"
                   onClick={() => navigate(`/users/${e.id}`)}
                 >
@@ -50,7 +81,7 @@ const UsersPage = () => {
                     null
                   }</p>
                 </div>
-              </>
+            
             );
           })}
         </div>
