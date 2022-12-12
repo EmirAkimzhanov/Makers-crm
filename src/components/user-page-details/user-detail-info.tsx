@@ -38,23 +38,14 @@ const UserDetailinfo = () => {
         </div>
         <div className="detail-info-paper-right-side">
           <div className="right-side-cards">
-            <div className="first-block">Информация о стажировке</div>
-            <div className="first-next-block">Информация о трекерстве</div>
-            <div className="second-block">Информация о менторстве</div>
-            <div className="third-block">Заметки</div>
+            <div className="first-block">Дата конца стажировки:{user.start_of_training}</div>
+            <div className="first-next-block">Дата начала трекерства крекерства:{user.start_of_training}</div>
+            <div className="second-block">{user.mentor_status_day ? <>является ментором </> : <>не является ментором</>}</div>
+            <div className="third-block">заметки:{user.notes}</div>
             <div className="third-block-skills">
-              Навыки
-              <div className="container">
-                <div className="skills html"></div>
-              </div>
-              <div className="container">
-                <div className="skills html"></div>
-              </div>
-              <div className="container">
-                <div className="skills html"></div>
-              </div>
+              Ранг:{user.staff_rank}
             </div>
-            <div className="second-block">Детали контракта</div>
+            <div className="second-block">Детали контракта:{user.plans_to_leave}</div>
           </div>
         </div>
       </div>

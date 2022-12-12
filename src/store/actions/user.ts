@@ -4,6 +4,7 @@ import {
   getAllPeopleSuccess,
   getDetail,
   getFailedAddPeople,
+  getFailedDelete,
   getFailedEditPeople,
   getPeopleFailed,
 } from "../slices/users";
@@ -42,7 +43,7 @@ export const fetchUsers = () => async (dispatch: AppDispatch) => {
 };
 
 
-export const handleDelete = async (id: string) => {
+export const handleDelete = (id: string) => async (dispatch: AppDispatch) =>{
   const token = localStorage.getItem("token")
     ? JSON.parse(localStorage.getItem("token")!)
     : "";
@@ -55,8 +56,9 @@ export const handleDelete = async (id: string) => {
   console.log(token);
   try {
     let res = await axios.delete(`${API}staff/staffs/delete/${id}/`, config);
-  } catch (error) {
+  } catch (error:any) {
     console.log(error);
+    dispatch(getFailedDelete(error.message));
   }
 };
 
@@ -82,11 +84,18 @@ export const fetchDetail = (id: string) => async (dispatch: AppDispatch) => {
   }
 };
 
-export const addNewUser = (name: string, surname: string, position: string) => async (dispatch: AppDispatch) => {
+export const addNewUser = (name: string, surname: string, position: string , direction:string , contract:string,training:string,experience:string,endTraining:string,rank:string) => async (dispatch: AppDispatch) => {
   let formData = new FormData();
   formData.append("name", name);
   formData.append("last_name", surname);
   formData.append("staff_position", position);
+  formData.append("direction", direction);
+  formData.append("plans_to_leave", contract);
+  formData.append("start_of_training", training);
+  formData.append("tracker_experience", experience);
+  formData.append("end_of_training", endTraining);
+  formData.append("staff_rank", rank);
+
   try {
     let res = await axios.post(
       `${API}staff/staffs/create/`,
@@ -100,16 +109,21 @@ export const addNewUser = (name: string, surname: string, position: string) => a
   }
 };
 
-export const handleReduct = (name: string, surname: string, position: string , id:string) => async (dispatch: AppDispatch) => {
-  let obj = {
-    name,
-    last_name: surname,
-    staff_position: position
-  }
+export const handleReduct = (name: string, surname: string, position: string , direction:string , contract:string,training:string,experience:string,endTraining:string,rank:string , id:string) => async (dispatch: AppDispatch) => {
+  let formData = new FormData();
+  formData.append("name", name);
+  formData.append("last_name", surname);
+  formData.append("staff_position", position);
+  formData.append("direction", direction);
+  formData.append("plans_to_leave", contract);
+  formData.append("start_of_training", training);
+  formData.append("tracker_experience", experience);
+  formData.append("end_of_training", endTraining);
+  formData.append("staff_rank", rank);
   try {
     let res = await axios.patch(
       `${API}staff/staffs/update/${id}/`,
-      obj,
+      formData,
       config
     );
     console.log(res)

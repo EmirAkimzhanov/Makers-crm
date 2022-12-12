@@ -44,11 +44,15 @@ const usersSlice = createSlice({
     getFailedEditPeople(state, action) {
       state.error = action.payload;
       state.loading = false;
+    },
+    getFailedDelete(state, action) {
+      state.error = action.payload;
+      state.loading = false;
     }
   },
 });
 
-const { getAllPeopleSuccess, getOnePeople, getPeopleFailed, getDetail, getFailedAddPeople, getFailedEditPeople } =
+const { getAllPeopleSuccess, getOnePeople, getPeopleFailed, getDetail, getFailedAddPeople, getFailedEditPeople , getFailedDelete } =
   usersSlice.actions;
 
 const userReducer = usersSlice.reducer;
@@ -60,4 +64,5 @@ export {
   getDetail,
   getFailedAddPeople,
   getFailedEditPeople,
+  getFailedDelete,
 };

@@ -19,6 +19,19 @@ html {
   display: flex;
   justify-content: center;
 }
+.filter{
+  width: 120px;
+  position: absolute;
+  margin-left:226px;
+  margin-top: 50px;
+  height: 55px;
+  border-radius: 10px;
+  z-index: 2;
+  background-color: beige;
+  border:1px solid #ffa86a;
+  display: flex;
+  flex-direction: column;
+}
 .main-right-box-add {
   margin-left: 2%;
   width: 3vw;
@@ -33,6 +46,13 @@ html {
   align-self: center;
   font-size: 2vw;
   color: white;
+}
+.filter-btn{
+  border: 1px solid #ffa86a;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 10px;
 }
 .main_right-box-panel {
   display: flex;
