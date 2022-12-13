@@ -20,7 +20,6 @@ console.log(results);
   const search = new URLSearchParams(window.location.pathname);
 
   const fetchByParams = (key: string, value: string) => {
-    
     if (value === "all") {
       search.delete(key);
     } else {

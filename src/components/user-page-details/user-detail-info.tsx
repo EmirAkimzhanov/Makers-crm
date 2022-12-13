@@ -16,12 +16,13 @@ const UserDetailinfo = () => {
 
   const navigate = useNavigate();
 
+  const deleteUser = (id: any) => {
+    let sure = window.confirm('Вы действительно хотите удалить работника?!');
+    return sure ? handleDelete(id) : null;
+  }
 
   const { userDetail: user } = useAppSelector((state) => state.user);
 
-  console.log(user);
-
- 
 
   return (
     <div className="user-detail-block">
@@ -33,7 +34,7 @@ const UserDetailinfo = () => {
           </p>
           <p className="left-side-text-details">Язык: <strong>{user.direction}</strong></p>
           <p className="left-side-text-details">Статус: <strong>{user.staff_position}</strong></p>
-          <button className="delete-btn" onClick={()=>handleDelete(user.id)}>delete</button>
+          <button className="delete-btn" onClick={()=>deleteUser(user.id)}>delete</button>
           <button className="update-btn" onClick={()=>navigate(`/update/${user.id}`)}>update</button>
         </div>
         <div className="detail-info-paper-right-side">
