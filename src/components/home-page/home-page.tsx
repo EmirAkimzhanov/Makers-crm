@@ -23,7 +23,7 @@ let currentNews = Object.values(news).slice(Math.max(Object.values(news).length 
         <h2>Feed</h2>
         {
           Object.values(currentNews).map((e)=>(
-            <div className="home-feed__block" key={e.id}>
+            <div className="home-feed__block" key={e.id} >
             <p className="home-feed__text"><span className="mentor">{e.object_repr}</span> </p>
             <p className="home-feed__time">{e.action_time}</p>
           </div>

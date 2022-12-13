@@ -30,32 +30,25 @@ console.log(results);
     fetchUsers();
   };
 
+
   return (
     <>
       <div className="main">
         <div className="main_right-box">
           <h1 className="main_right-box-head-text">Менторы</h1>
           <div className="main_right-box-panel">
-            <button onClick={() => {
-              fetchByParams("direction", "JS");
-              setDisplay('block');
-            }} className="main_right-box-switcher">Direction</button>
-            <div className="filter" style={{display:`${display}`}}>
-              <div style={{display:"flex" , flexDirection:"column"}}>
-              <button onClick={()=>{
-                fetchByParams("direction", "JS");
-                setDisplay('none')
-                } } className="filter-btn">JS</button>
-              <button onClick={()=>{
-                fetchByParams("direction", "Py");
-                setDisplay('none')
-                } } className="filter-btn">Py</button>
-              </div>
+            <div  style={{display:`${display}`}}>
             </div>
+            <div className="filter-block">
+            <select className="filter" onChange={(e)=>fetchByParams('direction' ,`${e.target.value}` )}>
+            <option className="filter-item" value="JS">JS</option>
+            <option className="filter-item" value="Py">Py</option>
+          </select>
             <div className="main-right-box-add">
               <p className="add-text" onClick={() => navigate("/add")}>
                 +
               </p>
+              </div>
             </div>
           </div>
           {results?.map((e: any, i: any) => {

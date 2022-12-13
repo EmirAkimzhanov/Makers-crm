@@ -35,13 +35,9 @@ h2 {
 
 .mentor {
   color: #ffa86a;
-  cursor: pointer;
   transition: 50ms;
 }
 
-.mentor:hover {
-  text-decoration: underline;
-}
 
 .home-feed__text {
   font-weight: 600;
