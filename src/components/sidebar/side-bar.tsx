@@ -61,44 +61,44 @@ const SideBar = () => {
         <div className="main_left-box">
           <div
             className="main_left-box-content"
-            onClick={() => {navigate('/rooms/1')}}>
-            <p className={location.pathname == '/rooms/1' ? "main_left-box-content active" : "main_left-box-content"}>1</p>
+            onClick={() => {navigate('/rooms/6')}}>
+            <p className={location.pathname == '/rooms/6' ? "main_left-box-content active" : "main_left-box-content"}>1</p>
           </div>
           <div
             className="main_left-box-content"
-            onClick={() => {navigate('/rooms/4')}}>
-            <p className={location.pathname == '/rooms/4' ? "main_left-box-content active" : "main_left-box-content"}>4</p>
+            onClick={() => {navigate('/rooms/7')}}>
+            <p className={location.pathname == '/rooms/7' ? "main_left-box-content active" : "main_left-box-content"}>4</p>
           </div>
           <div
             className="main_left-box-content"
-            onClick={() => {navigate('/rooms/9')}}>
-            <p className={location.pathname == '/rooms/9' ? "main_left-box-content active" : "main_left-box-content"}>9</p>
+            onClick={() => {navigate('/rooms/8')}}>
+            <p className={location.pathname == '/rooms/8' ? "main_left-box-content active" : "main_left-box-content"}>9</p>
           </div>
 
           <div
             className="main_left-box-content"
-            onClick={() => {navigate('/rooms/14')}}>
-            <p className={location.pathname == '/rooms/14' ? "main_left-box-content active" : "main_left-box-content"}>14</p>
+            onClick={() => {navigate('/rooms/5')}}>
+            <p className={location.pathname == '/rooms/5' ? "main_left-box-content active" : "main_left-box-content"}>14</p>
           </div>
           <div
             className="main_left-box-content"
-            onClick={() => {navigate('/rooms/18')}}>
-            <p className={location.pathname == '/rooms/18' ? "main_left-box-content active" : "main_left-box-content"}>18</p>
+            onClick={() => {navigate('/rooms/4')}}>
+            <p className={location.pathname == '/rooms/4' ? "main_left-box-content active" : "main_left-box-content"}>18</p>
           </div>
           <div
             className="main_left-box-content"
-            onClick={() => {navigate('/rooms/19')}}>
-            <p className={location.pathname == '/rooms/19' ? "main_left-box-content active" : "main_left-box-content"}>19</p>
+            onClick={() => {navigate('/rooms/3')}}>
+            <p className={location.pathname == '/rooms/3' ? "main_left-box-content active" : "main_left-box-content"}>19</p>
           </div>
           <div
             className="main_left-box-content"
-            onClick={() => {navigate('/rooms/22')}}>
-            <p className={location.pathname == '/rooms/22' ? "main_left-box-content active" : "main_left-box-content"}>22</p>
+            onClick={() => {navigate('/rooms/2')}}>
+            <p className={location.pathname == '/rooms/2' ? "main_left-box-content active" : "main_left-box-content"}>22</p>
           </div>
           <div
             className="main_left-box-content"
-            onClick={() => {navigate('/rooms/24')}}>
-            <p className={location.pathname == '/rooms/24' ? "main_left-box-content active" : "main_left-box-content"}>24</p>
+            onClick={() => {navigate('/rooms/1')}}>
+            <p className={location.pathname == '/rooms/1' ? "main_left-box-content active" : "main_left-box-content"}>24</p>
           </div>
         </div>
       </div>
