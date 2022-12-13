@@ -1,6 +1,6 @@
 import { AppDispatch } from "../store";
 import axios from "axios";
-// import { getAllRooms, getAllRoomsFailed } from "../slices/rooms";
+import { getAllRoomsFailed } from "../slices/rooms";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const API = 'http://35.184.247.17/';
@@ -26,6 +26,11 @@ const config = {
 // };
 
 export const fetchRooms  = createAsyncThunk('fetchRooms', async () => {
-  const { data } = await axios(API+ "room/rooms/", config)
+    const { data } = await axios(API + "room/rooms/", config);
+    return data
+})
+
+export const getOneRoom = createAsyncThunk('getOneRoom', async (room_id: any) => {
+  const { data } = await axios(API + `room/rooms/${room_id}/`, config);
   return data
 })

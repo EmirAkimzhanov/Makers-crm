@@ -65,10 +65,15 @@
 
 .evening {
   margin-left: 50%;
+  background-color: black;
 }
 
 .switch:hover {
   background-color: rgb(231, 231, 231);
+}
+
+.evening:hover {
+  background-color: rgb(54, 54, 54);
 }
 
 .room-staff {
@@ -88,6 +93,7 @@
 .staff-names {
   color:#ffa86a;
   cursor: pointer;
+  margin-right: 10px; 
 }
 
 .staff-names:hover {
