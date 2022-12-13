@@ -178,3 +178,29 @@
   font-weight: 600;
   color: #ffa86a;
 }
+
+.trackers_name {
+  padding: 0 5px;
+  font-size: smaller;
+}
+
+.day_evening-change-btn {
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 6px 20px;
+  background-color: white;
+  color: black;
+  transition: 150ms;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.day_evening-change-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.btn-evening {
+  background-color: black;
+  color: #fff;
+}

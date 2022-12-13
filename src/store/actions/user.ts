@@ -53,7 +53,6 @@ export const handleDelete = (id: string) => async (dispatch: AppDispatch) =>{
       Authorization: `Bearer ${token.access}`,
     },
   };
-  console.log(token);
   try {
     let res = await axios.delete(`${API}staff/staffs/delete/${id}/`, config);
   } catch (error:any) {

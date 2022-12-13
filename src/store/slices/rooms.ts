@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { IRoom } from "src/@types/room";
-import { fetchRooms } from '../actions/room'
+import { fetchRooms, getOneRoom } from '../actions/room'
 const API = 'http://35.184.247.17/';
 
 const token = localStorage.getItem("token")
@@ -18,7 +18,13 @@ interface IRooms {
   count: number,
   next: null | string,
   previous: null | string,
-  results: Array<IRoom>
+  results: Array<IRoom>,
+  capacity?: number,
+  room_number?: number,
+  room_status_day?: boolean,
+  room_status_evening?: boolean,
+  day_group: any[],
+  evening_group: any[],
 }
 interface IState {
   rooms: IRooms,
@@ -40,10 +46,10 @@ const roomsSlice = createSlice({
     //   state.rooms = action.payload;
     //   state.loading = false;
     // },
-    // getAllRoomsFailed(state, action) {
-    //   state.error = action.payload;
-    //   state.loading = false;
-    // },
+    getAllRoomsFailed(state, action) {
+      state.error = action.payload;
+      state.loading = false;
+    },
   },
   extraReducers(builder) {
     builder
@@ -51,17 +57,31 @@ const roomsSlice = createSlice({
         // state.status = 'loading'
       })
       .addCase(fetchRooms.fulfilled, (state: any, action) => {
-        console.log(action)
+        state.rooms = action.payload;
+        state.loading = false;
+        state.status = 'succeeded';
         // state.status = 'succeeded'
         // Add any fetched posts to the array
         // state.posts = state.posts.concat(action.payload)
       })
       .addCase(fetchRooms.rejected, (state: any, action) => {
-        // state.status = 'failed'
+        state.status = 'failed';
         // state.error = action.error.message
+      })
+      .addCase(getOneRoom.pending, (state: any, action) => {
+        state.status = 'loading';
+      })
+      .addCase(getOneRoom.fulfilled, (state: any, action) => {
+        state.status = 'succeeded';
+        state.rooms = action.payload;
+      })
+      .addCase(getOneRoom.rejected, (state: any, action) => {
+        console.log(action , "ERRROR");
+        
+        state.status = 'failed';
       })
   }
 });
 
 export const roomsReducer = roomsSlice.reducer;
-// export const { getAllRooms, getAllRoomsFailed } = roomsSlice.actions;
+export const { getAllRoomsFailed } = roomsSlice.actions;

@@ -20,6 +20,15 @@ const AddProduct = () => {
   };
 console.log(position);
 
+const inputStyle = {
+  border:"1px solid gray",
+  width:"100%",
+  height:"40px",
+  borderRadius:"3px",
+  marginBottom:"20px",
+  padding: '0 15px'
+}
+
   return (
     <div>
       <div style={{ marginLeft: "20%", marginTop: "10%" }}>
@@ -30,42 +39,42 @@ console.log(position);
             </label>
         <form>
           <input 
-          style={{border:"1px solid gray" , width:"100%" , height:"40px" , borderRadius:"3px" , marginBottom:"20px"}}
+          style={inputStyle}
           placeholder='name' 
           onChange={(e)=>setName(e.target.value)}
           />
           <input 
-          style={{border:"1px solid gray" , width:"100%" , height:"40px" , borderRadius:"3px" , marginBottom:"20px"}}
+          style={inputStyle}
           placeholder='surname' 
           onChange={(e)=>setSurname(e.target.value)}
           />
           <input 
-          style={{border:"1px solid gray" , width:"100%" , height:"40px" , borderRadius:"3px" , marginBottom:"20px"}}
+          style={inputStyle}
           placeholder='direction' 
           onChange={(e)=>setDirection(e.target.value)}
           />
           <input 
-          style={{border:"1px solid gray" , width:"100%" , height:"40px" , borderRadius:"3px" , marginBottom:"20px"}}
+          style={inputStyle}
           placeholder='contract details' 
           onChange={(e)=>setContract(e.target.value)}
           />
           <input 
-          style={{border:"1px solid gray" , width:"100%" , height:"40px" , borderRadius:"3px" , marginBottom:"20px"}}
+          style={inputStyle}
           placeholder='start of training' 
           onChange={(e)=>setTraining(e.target.value)}
           />
           <input 
-          style={{border:"1px solid gray" , width:"100%" , height:"40px" , borderRadius:"3px" , marginBottom:"20px"}}
+          style={inputStyle}
           placeholder='tracker experience' 
           onChange={(e)=>setExperience(e.target.value)}
           />
           <input 
-          style={{border:"1px solid gray" , width:"100%" , height:"40px" , borderRadius:"3px" , marginBottom:"20px"}}
+          style={inputStyle}
           placeholder='end of training' 
           onChange={(e)=>setEndTraining(e.target.value)}
           />
           <input 
-          style={{border:"1px solid gray" , width:"100%" , height:"40px" , borderRadius:"3px" , marginBottom:"20px"}}
+          style={inputStyle}
           placeholder='rank' 
           onChange={(e)=>setRank(e.target.value)}
           />
