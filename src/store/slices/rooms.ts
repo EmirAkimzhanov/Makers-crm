@@ -15,6 +15,7 @@ const config = {
 };
 
 interface IRooms {
+  id: number,
   count: number,
   next: null | string,
   previous: null | string,

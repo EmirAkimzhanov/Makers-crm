@@ -2,12 +2,10 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAppSelector, useAction } from "../../hooks";
 import "./user-detail-info.css";
-import axios from 'axios'
 
 const UserDetailinfo = () => {
   const { fetchDetail } = useAction();
   const { handleDelete } = useAction();
-  const { userDetail: userDetail } = useAppSelector((state) => state.user);
   const { id } = useParams();
 
   useEffect(() => {
@@ -23,6 +21,22 @@ const UserDetailinfo = () => {
 
   const { userDetail: user } = useAppSelector((state) => state.user);
 
+  function getRankIcon(rank: string){
+    switch (rank) {
+      case 'Trainee':
+        return "/images/rank_low.svg"
+      case 'Ninja':
+        return "/images/rank_bronze.svg"
+      case 'Ronin':
+        return "/images/rank_silver.svg"
+      case 'Samurai':
+        return "/images/rank_gold.svg"
+      case 'Daimio':
+        return "/images/rank_epic.svg"
+      default:
+        return "/images/rank_low_plus.svg"
+    }
+  }
 
   return (
     <div className="user-detail-block">
@@ -39,14 +53,36 @@ const UserDetailinfo = () => {
         </div>
         <div className="detail-info-paper-right-side">
           <div className="right-side-cards">
-            <div className="first-block">Дата конца стажировки:{user.start_of_training}</div>
-            <div className="first-next-block">Дата начала трекерства крекерства:{user.start_of_training}</div>
-            <div className="second-block">{user.mentor_status_day ? <>является ментором </> : <>не является ментором</>}</div>
+            <div className="first-block">
+              Дата конца стажировки:
+              <p>
+                <b>{user.start_of_training}</b>
+              </p>
+            </div>
+            <div className="first-next-block">Дата начала трекерства крекерства:
+              <p>
+                <b>{user.start_of_training}</b>
+              </p>
+            </div>
+            <div className="second-block">
+              Ментор?
+              <p>
+                <b>{user.mentor_status_day ? <>Да </> : <>Нет</>}</b>
+              </p>
+            </div>
             <div className="third-block">заметки:{user.notes}</div>
             <div className="third-block-skills">
-              Ранг:{user.staff_rank}
+              Ранг:
+              <p>
+                <img src={getRankIcon(user.staff_rank)} alt="rank_icon" width="180" />
+              </p>
+              <em><b>{user.staff_rank}</b></em>
             </div>
-            <div className="second-block">Детали контракта:{user.plans_to_leave}</div>
+            <div className="second-block">Контракт до:
+              <p>
+                <b>{user.plans_to_leave}</b>
+              </p>
+            </div>
           </div>
         </div>
       </div>
