@@ -34,3 +34,9 @@ export const getOneRoom = createAsyncThunk('getOneRoom', async (room_id: any) =>
   const { data } = await axios(API + `room/rooms/${room_id}/`, config);
   return data
 })
+
+export const updateOneRoom = createAsyncThunk('updateOneRoom', async (updatedRoom: any, room_id: any) => {
+  const res = await axios.post(API + `room/rooms/update/${room_id}`, updatedRoom, config);
+  console.log(res);
+  return res;
+})

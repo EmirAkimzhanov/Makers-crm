@@ -13,7 +13,7 @@ const inputStyle = {
 const RoomsEdit = () => {
 
   const {id, day} = useParams();
-  const { getOneRoom, fetchUsers } = useAction();
+  const { getOneRoom, fetchUsers, updateOneRoom } = useAction();
   const { room, user  } = useAppSelector((state) => state);
   const [editingRoom, setEditingRoom] = useState<any>({});
   const [trackers, setTrackers] = useState<any>([]);
@@ -47,25 +47,36 @@ const RoomsEdit = () => {
   }, [user.users])
 
   const handleInp = (e: any): void => {
-    setEditingRoom({
-      ...editingRoom,
-      [e.target.name]: e.target.value,
-    })
+    if(e.length){
+      setEditingRoom({
+        ...editingRoom,
+        tracker: e,
+      })
+    } else {
+      setEditingRoom({
+        ...editingRoom,
+        [e.target.name]: e.target.value,
+      })
+    }
   }
 
-  console.log(trackers)
-  console.log(trackersList)
+  const handleUpdateRoom = (e: any) => {
+    e.preventDefault();
+    console.log(editingRoom);
+    // updateOneRoom(editingRoom, editingRoom?.room)
+  }
 
   return (
     <>
       <div>
-        <form style={{display: 'flex', flexDirection: 'column', margin: '30px 0', alignItems: 'flex-start'}}>
+        <h2 style={{marginTop: '20px'}}>Аудитория {editingRoom?.room}</h2>
+        <form style={{display: 'flex', flexDirection: 'column', margin: '30px 0', alignItems: 'flex-start'}} onSubmit={(e) => handleUpdateRoom(e)}>
           <label htmlFor="name_of_group">Group name</label>
           <input style={inputStyle} type="text" name='name_of_group' value={editingRoom?.name_of_group} onChange={(e) => handleInp(e)} />
           <label htmlFor="date_of_start">Start date</label>
           <input style={inputStyle} type="date" name='date_of_start'  value={editingRoom?.date_of_start} onChange={(e) => handleInp(e)}/>
           <label htmlFor="date_of_end">End date</label>
-          <input style={inputStyle} type="date" name='date_of_end' value={editingRoom?.date_of_end}/>
+          <input style={inputStyle} type="date" name='date_of_end' value={editingRoom?.date_of_end} onChange={(e) => handleInp(e)}/>
           <label htmlFor="group_studying_time">Study time</label>
           <select style={inputStyle}  name='group_studying_time' defaultValue={day} onChange={(e) => handleInp(e)}>
             <option value="day">Day</option>
@@ -73,13 +84,13 @@ const RoomsEdit = () => {
           </select>
           <label htmlFor="mentor">Mentor</label>
           <select style={inputStyle} name="mentor" onChange={(e) => handleInp(e)}>
-            <option value={editingRoom?.mentor?.split(' ')[0]} selected>{editingRoom?.mentor?.split(' ')[0]}</option>
+            <option value={editingRoom?.mentor} selected>{editingRoom?.mentor?.split(' ')[0]}</option>
             {
               user.users.results?.map((item: any) => (
                 <>
                 {
                   item.staff_position == 'Mentor' ? 
-                  <option value={item.name}>{item.name + " " + item.direction}</option>
+                  <option key={item.id} value={item.name + " " + item.last_name}>{item.name + " " + item.direction}</option>
                   : <></>
                 }
                 </>
@@ -97,6 +108,7 @@ const RoomsEdit = () => {
                 defaultValue={trackers?.map((item: any) => item)}
                 className="basic-multi-select"
                 classNamePrefix="select"
+                onChange={(e) => handleInp(e)}
               />
             </>
             :
@@ -109,7 +121,7 @@ const RoomsEdit = () => {
             name="number_of_students"
             value={editingRoom?.number_of_students}
             onChange={(e) => handleInp(e)}/>
-            <input style={{...inputStyle}} type="submit" name="" id="" value="Update" />
+            <input style={{...inputStyle, cursor: 'pointer'}} type="submit" name="" id="" value="Update" />
         </form>
       </div>
     </>
