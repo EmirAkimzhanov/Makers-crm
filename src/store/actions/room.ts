@@ -31,6 +31,11 @@ export const fetchRooms  = createAsyncThunk('fetchRooms', async () => {
 })
 
 export const getOneRoom = createAsyncThunk('getOneRoom', async (room_id: any) => {
+  const { data } = await axios(API + `room/rooms/${room_id}/`, config);
+  return data
+})
+
+export const getOneGroup = createAsyncThunk('getOneGroup', async (room_id: any) => {
   const { data } = await axios(API + `group/groups/${room_id}/`, config);
   return data
 })

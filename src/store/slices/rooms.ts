@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { IRoom } from "src/@types/room";
-import { fetchRooms, getOneRoom, updateOneRoom } from '../actions/room'
+import { fetchRooms, getOneGroup, getOneRoom, updateOneRoom } from '../actions/room'
 const API = 'http://35.184.247.17/';
 
 const token = localStorage.getItem("token")
@@ -31,12 +31,14 @@ interface IState {
   rooms: IRooms,
   loading: boolean,
   error: null | string,
+  groups: any,
 }
 
 const initialState: IState = {
   rooms: {} as IRooms,
   loading: false,
   error: null,
+  groups: {},
 };
 
 const roomsSlice = createSlice({
@@ -77,6 +79,18 @@ const roomsSlice = createSlice({
         state.rooms = action.payload;
       })
       .addCase(getOneRoom.rejected, (state: any, action) => {
+        console.log(action , "ERRROR");
+        
+        state.status = 'failed';
+      })
+      .addCase(getOneGroup.pending, (state: any, action) => {
+        state.status = 'loading';
+      })
+      .addCase(getOneGroup.fulfilled, (state: any, action) => {
+        state.status = 'succeeded';
+        state.groups = action.payload;
+      })
+      .addCase(getOneGroup.rejected, (state: any, action) => {
         console.log(action , "ERRROR");
         
         state.status = 'failed';

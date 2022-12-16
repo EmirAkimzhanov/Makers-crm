@@ -13,7 +13,7 @@ const inputStyle = {
 const RoomsEdit = () => {
 
   const {id, day} = useParams();
-  const { getOneRoom, fetchUsers, updateOneRoom } = useAction();
+  const { getOneGroup, fetchUsers, updateOneRoom } = useAction();
   const { room, user  } = useAppSelector((state) => state);
   const [editingRoom, setEditingRoom] = useState<any>({});
   const [trackers, setTrackers] = useState<any>([]);
@@ -24,7 +24,7 @@ const RoomsEdit = () => {
   }
   
   useEffect(() => {
-    getOneRoom(id);
+    getOneGroup(id);
     fetchUsers();
   }, [])
 
@@ -36,9 +36,9 @@ const RoomsEdit = () => {
   }, [trackersList])
 
   useEffect(() => {
-    console.log(room.rooms)
-    setEditingRoom(room.rooms);
-  }, [room.rooms])
+    console.log(room.groups)
+    setEditingRoom(room.groups);
+  }, [room.groups])
 
   useEffect(() => {
     setTrackersList(user.users?.results?.map((item: any) => {
