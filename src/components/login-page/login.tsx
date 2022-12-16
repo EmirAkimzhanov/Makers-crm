@@ -11,16 +11,14 @@ const LoginPage = () => {
     password: "",
   });
 
-  const login = async () => {
+  const login = async (e: any) => {
+    e.preventDefault();
     try {
-      
-
       let res = await axios.post(`${API}api/token/`, { ...isUser });
       localStorage.setItem("token", JSON.stringify(res.data));
       navigate("/users/");
       console.log("worked");
-      
-      window.location.reload()
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -30,35 +28,35 @@ const LoginPage = () => {
     <div style={{ marginLeft: "20%", marginTop: "10%" }}>
       <div className="flex justify-center">
         <div className="mb-3 xl:w-96">
-          {/* <form > */}
-          <label className={styles.label}>Login</label>
-          
-          <input
-            type="text"
-            value={isUser.username}
-            required
-            className={styles.input}
-            placeholder="username"
-            onChange={({ target: { value } }) =>
-              setIsUser({ ...isUser, username: value })
-            }
-          />
-          <input
-            type="text"
-            required
-            value={isUser.password}
-            className={styles.input}
-            placeholder="password"
-            onChange={({ target: { value } }) =>
-              setIsUser({ ...isUser, password: value })
-            }
-          />
-          <div className="flex space-x-2 justify-center">
-            <button type="submit" className={styles.button}  onClick={login}>
-              Click me
-            </button>
-          </div>
-          {/* </form> */}
+          <form onSubmit={(e) => login(e)}>
+            <label className={styles.label}>Login</label>
+            
+            <input
+              type="text"
+              value={isUser.username}
+              required
+              className={styles.input}
+              placeholder="username"
+              onChange={({ target: { value } }) =>
+                setIsUser({ ...isUser, username: value })
+              }
+            />
+            <input
+              type="text"
+              required
+              value={isUser.password}
+              className={styles.input}
+              placeholder="password"
+              onChange={({ target: { value } }) =>
+                setIsUser({ ...isUser, password: value })
+              }
+            />
+            <div className="flex space-x-2 justify-center">
+              <button type="submit" className={styles.button}  onClick={(e) => login(e)}>
+                Click me
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Navigate, useLocation, useNavigate, useParams } from "react-router";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router";
 import { useAction, useAppSelector } from "../../hooks";
-import { IRoom } from "src/@types/room";
 import "./rooms-details.css";
-import { group } from "console";
 
 
 const RoomsDetails = () => {
@@ -22,7 +20,7 @@ const RoomsDetails = () => {
 
     useEffect(()=>{
       setSlots(slotsFill(rooms.capacity));
-    }, [rooms])
+    }, [rooms, id])
 
     function group() {
       return filter == "switch day" ? 'day_group' : 'evening_group';
@@ -72,6 +70,8 @@ const RoomsDetails = () => {
                       ))}
             </div>
             <div className="room-staff">
+            <button className="room_update-btn" onClick={() => navigate(`/rooms/edit/${rooms?.id}/${filter.split(' ')[1]}`)}>update</button>
+
                 <h2>
                     Mentor: <span className="staff-names">{rooms[group()] && rooms[group()][0]?.mentor}</span>
                 </h2>
@@ -93,3 +93,4 @@ const RoomsDetails = () => {
 };
 
 export default RoomsDetails;
+

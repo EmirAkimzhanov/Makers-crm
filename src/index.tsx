@@ -7,6 +7,7 @@ import { store } from "./store/store";
 import BuildRoutes from "./build-routes";
 import "./index.css";
 import LoginPage from "./components/login-page/login";
+import Test from "./components/test";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -22,6 +23,7 @@ root.render(
           <SideBar />
           <div className="main-container-right">
             <BuildRoutes />
+            {/* <Test /> */}
           </div>
         </div>
       ) : (
