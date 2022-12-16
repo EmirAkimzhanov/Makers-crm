@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { newsReducer } from "./slices/news";
 import { roomsReducer } from "./slices/rooms";
 import { userReducer } from "./slices/users";
 
@@ -6,6 +7,7 @@ export const store = configureStore({
   reducer: {
     user: userReducer,
     room: roomsReducer,
+    news:newsReducer,
   },
 });
 

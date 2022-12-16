@@ -48,7 +48,7 @@ const Update = () => {
               <form style={{display:"flex" , flexDirection:"column"}}>
           <input value={updateName} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}}  placeholder="name" onChange={(e)=>setUpdateName(e.target.value)}></input>
           <input value={updateSurname} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="surname" onChange={(e)=>setUpdateSurname(e.target.value)}></input>
-          <input value={updatePosition} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="direction" onChange={(e)=>setUpdateDirection(e.target.value)}></input>
+          <input value={updateDirection} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="direction" onChange={(e)=>setUpdateDirection(e.target.value)}></input>
           <input value={updateContract} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="contract details" onChange={(e)=>setUpdateContract(e.target.value)}></input>
           <input value={updateTraining} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="start of training" onChange={(e)=>setUpdateTraining(e.target.value)}></input>
           <input value={updateExperience} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="experience" onChange={(e)=>setUpdateExperience(e.target.value)}></input>

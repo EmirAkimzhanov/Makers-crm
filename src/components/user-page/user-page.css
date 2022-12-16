@@ -19,21 +19,28 @@ html {
   display: flex;
   justify-content: center;
 }
+.filter-block{
+  display: flex;
+  align-items: center;
+  padding-bottom: 3%;
+}
 .filter{
   width: 120px;
-  position: absolute;
+
+  /* position: absolute; */
   margin-left:226px;
-  margin-top: 50px;
-  height: 55px;
+  /* margin-top: 50px; */
+  height: 30px;
   border-radius: 10px;
   z-index: 2;
-  background-color: beige;
-  border:1px solid #ffa86a;
+  /* background-color: beige; */
+  border:2px solid #ffa86a;
   display: flex;
   flex-direction: column;
 }
 .main-right-box-add {
-  margin-left: 2%;
+  margin-left: 26px;
+  /* margin-bottom: 2%; */
   width: 3vw;
   height: 3vw;
   display: flex;
@@ -42,6 +49,7 @@ html {
   background-color:#ffa86a;
   cursor: pointer;
 }
+
 .add-text {
   align-self: center;
   font-size: 2vw;
@@ -49,10 +57,10 @@ html {
 }
 .filter-btn{
   border: 1px solid #ffa86a;
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
-  border-radius: 10px;
+  margin-bottom: 5px;
+  border-radius: 15px;
+  background-color: beige;
+  height: 40px;
 }
 .main_right-box-panel {
   display: flex;
@@ -102,6 +110,7 @@ html {
 }
 
 .main_right-box-switcher {
+  z-index: 2;
   margin-bottom: 30px;
   background-color: #ffa86a;
   border-radius: 15px;
@@ -121,10 +130,13 @@ html {
   width: 100px;
   height: 100%;
   border-radius: 15px 0 0px 15px;
-  background: url("../../../public/images/Agay.jpg");
+  background: url("http://www.pngall.com/wp-content/uploads/5/Profile-PNG-File.png");
   background-position: center;
   background-size: cover;
   align-self: center;
+}
+.switcher-txt{
+  font-size: 90%;
 }
 .mentors-name {
   margin: auto 0;
