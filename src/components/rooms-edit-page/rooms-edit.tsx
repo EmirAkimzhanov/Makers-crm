@@ -36,7 +36,8 @@ const RoomsEdit = () => {
   }, [trackersList])
 
   useEffect(() => {
-    setEditingRoom(room.rooms[getDayEvenInfo()] && room.rooms[getDayEvenInfo()][0]);
+    console.log(room.rooms)
+    setEditingRoom(room.rooms);
   }, [room.rooms])
 
   useEffect(() => {
@@ -60,10 +61,12 @@ const RoomsEdit = () => {
     }
   }
 
-  const handleUpdateRoom = (e: any) => {
+  const handleUpdateRoom = (e: any): void => {
     e.preventDefault();
     console.log(editingRoom);
-    // updateOneRoom(editingRoom, editingRoom?.room)
+    let obj = {...editingRoom};
+    delete obj.group_studying_time;
+    updateOneRoom({data: obj, id: editingRoom?.room})
   }
 
   return (
@@ -77,11 +80,11 @@ const RoomsEdit = () => {
           <input style={inputStyle} type="date" name='date_of_start'  value={editingRoom?.date_of_start} onChange={(e) => handleInp(e)}/>
           <label htmlFor="date_of_end">End date</label>
           <input style={inputStyle} type="date" name='date_of_end' value={editingRoom?.date_of_end} onChange={(e) => handleInp(e)}/>
-          <label htmlFor="group_studying_time">Study time</label>
+          {/* <label htmlFor="group_studying_time">Study time</label>
           <select style={inputStyle}  name='group_studying_time' defaultValue={day} onChange={(e) => handleInp(e)}>
             <option value="day">Day</option>
             <option value="evening">Evening</option>
-          </select>
+          </select> */}
           <label htmlFor="mentor">Mentor</label>
           <select style={inputStyle} name="mentor" onChange={(e) => handleInp(e)}>
             <option value={editingRoom?.mentor} selected>{editingRoom?.mentor?.split(' ')[0]}</option>

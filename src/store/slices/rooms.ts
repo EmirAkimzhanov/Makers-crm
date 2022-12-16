@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { IRoom } from "src/@types/room";
-import { fetchRooms, getOneRoom } from '../actions/room'
+import { fetchRooms, getOneRoom, updateOneRoom } from '../actions/room'
 const API = 'http://35.184.247.17/';
 
 const token = localStorage.getItem("token")
@@ -80,6 +80,16 @@ const roomsSlice = createSlice({
         console.log(action , "ERRROR");
         
         state.status = 'failed';
+      })
+      .addCase(updateOneRoom.pending, (state: any, action) => {
+        state.status = 'pending';
+      })
+      .addCase(updateOneRoom.fulfilled, (state: any, action) => {
+        state.status = 'succeeded';
+      })
+      .addCase(updateOneRoom.rejected, (state: any, action) => {
+        state.status = 'rejected';
+        console.log(action)
       })
   }
 });

@@ -31,12 +31,13 @@ export const fetchRooms  = createAsyncThunk('fetchRooms', async () => {
 })
 
 export const getOneRoom = createAsyncThunk('getOneRoom', async (room_id: any) => {
-  const { data } = await axios(API + `room/rooms/${room_id}/`, config);
+  const { data } = await axios(API + `group/groups/${room_id}/`, config);
   return data
 })
 
-export const updateOneRoom = createAsyncThunk('updateOneRoom', async (updatedRoom: any, room_id: any) => {
-  const res = await axios.post(API + `room/rooms/update/${room_id}`, updatedRoom, config);
+export const updateOneRoom = createAsyncThunk('updateOneRoom', async (info: any) => {
+  console.log(info)
+  const res = await axios.patch(API + `group/groups/update/${info.id}/`, info.data, config);
   console.log(res);
   return res;
 })
