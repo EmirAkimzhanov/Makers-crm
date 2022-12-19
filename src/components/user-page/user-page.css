@@ -23,24 +23,28 @@ html {
   display: flex;
   align-items: center;
   padding-bottom: 3%;
+  width: 60%;
+  margin: 0 auto;
 }
 .filter{
   width: 120px;
-
-  /* position: absolute; */
-  margin-left:226px;
-  /* margin-top: 50px; */
-  height: 30px;
+  height: 40px;
   border-radius: 10px;
   z-index: 2;
-  /* background-color: beige; */
-  border:2px solid #ffa86a;
   display: flex;
   flex-direction: column;
+  text-align: center;
+  border: 1px solid #ffa86a;
+  padding: 0 10px;
+  font-size: large;
 }
+
+.filter:focus {
+  outline: none;
+}
+
 .main-right-box-add {
   margin-left: 26px;
-  /* margin-bottom: 2%; */
   width: 3vw;
   height: 3vw;
   display: flex;
@@ -130,9 +134,9 @@ html {
   width: 100px;
   height: 100%;
   border-radius: 15px 0 0px 15px;
-  background: url("http://www.pngall.com/wp-content/uploads/5/Profile-PNG-File.png");
+  background: url("http://www.pngall.com/wp-content/uploads/5/Profile-PNG-File.png") no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: 70px;
   align-self: center;
 }
 .switcher-txt{
