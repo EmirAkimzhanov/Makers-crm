@@ -48,8 +48,10 @@ const UserDetailinfo = () => {
           </p>
           <p className="left-side-text-details">Язык: <strong>{user.direction}</strong></p>
           <p className="left-side-text-details">Статус: <strong>{user.staff_position}</strong></p>
-          <button className="delete-btn" onClick={()=>deleteUser(user.id)}>delete</button>
-          <button className="update-btn" onClick={()=>navigate(`/update/${user.id}`)}>update</button>
+          <div className="left-side-btns">
+            <button className="btn delete-btn" onClick={()=>deleteUser(user.id)}>delete</button>
+            <button className="btn update-btn" onClick={()=>navigate(`/update/${user.id}`)}>update</button>
+          </div>
         </div>
         <div className="detail-info-paper-right-side">
           <div className="right-side-cards">

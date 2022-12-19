@@ -20,6 +20,8 @@
 .detail-info-paper-left-side {
   width: 30%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .left-side-text {
   margin: 20px 0;
@@ -169,19 +171,31 @@
   background-color: #ffc297;
 }
 .delete-btn{
-  width: 5vw;
-  height: 3vw;
+  width: 90px;
+  height: 40px;
   border-radius: 15px;
-  margin:20px  auto;
   background-color: #ffa86a;
-  color:white
+  color:white;
+  transition: 150ms;
 }
 .update-btn{
-  width: 5vw;
-
-  height: 3vw;
+  width: 90px;
+  height: 40px;
   border-radius: 15px;
-  margin:20px 20px auto;
+  /* margin: 20px 20px auto; */
   background-color: #ffa86a;
-  color:white
+  color:white;
+  margin-left: 20px;
+  transition: 150ms;
+}
+
+.left-side-btns {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.left-side-btns button:hover {
+  background-color: #ee9c62;
 }

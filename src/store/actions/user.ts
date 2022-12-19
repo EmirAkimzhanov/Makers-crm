@@ -8,6 +8,7 @@ import {
   getFailedEditPeople,
   getPeopleFailed,
 } from "../slices/users";
+import { useNavigate } from "react-router";
 
 const API = "http://35.184.247.17/";
 
@@ -108,6 +109,7 @@ export const addNewUser = (name: string, surname: string, position: string , dir
   }
 };
 
+
 export const handleReduct = (name: string, surname: string, position: string , direction:string , contract:string,training:string,experience:string,endTraining:string,rank:string , id:string) => async (dispatch: AppDispatch) => {
   let formData = new FormData();
   formData.append("name", name);
@@ -125,7 +127,7 @@ export const handleReduct = (name: string, surname: string, position: string , d
       formData,
       config
     );
-    console.log(res)
+    console.log('1123123')
   } catch (error: any) {
     dispatch(getFailedEditPeople(error.message));
     console.log(error);
