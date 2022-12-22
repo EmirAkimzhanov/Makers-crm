@@ -10,7 +10,7 @@ const AddGroup = () => {
   const freeUsers = useAppSelector((state: any) => state.user.usersMentorsFree);
   const [mentorsList, setMentorsList] = useState<any>([]);
   const [day , setDay] = useState('day');
-  // console.log(day);
+  console.log(freeUsers.isFreeEvening);
   
   const [newGroup, setNewGroup] = useState({
     name_of_group: '',
@@ -29,24 +29,54 @@ const AddGroup = () => {
     getFreeMentors()
   },[])
   
+  // useEffect(()=>{
+  //   if(day == 'day'){
+  //     console.log(freeUsers.isFreeDay)
+  //   }
+  //   else{
+  //     console.log(freeUsers.isFreeEvening)
+  //   }
+    
+  // },[day])
   
 
   useEffect(() => {
-    setTrackersList(
-      day == 'day' ? ( 
-        freeUsers.isFreeDay?.map((item: any) => {
-          let obj = {...item,value: (item.name + " " + item?.direction), label: (item.name + " " + item?.direction), is_tracker: true}
-          return obj;
-        })
-      ):(freeUsers.isFreeEvening?.map((item: any) => {
+  day == 'day' ? (
+    
+    setTrackersList( 
+      freeUsers.isFreeDay?.map((item: any) => {
         let obj = {...item,value: (item.name + " " + item?.direction), label: (item.name + " " + item?.direction), is_tracker: true}
         return obj;
-      }))
+      })
+  )
+  ):(
+    
+    setTrackersList( 
+      freeUsers.isFreeEvening?.map((item: any) => {
+        let obj = {...item,value: (item.name + " " + item?.direction), label: (item.name + " " + item?.direction), is_tracker: true}
+        return obj;
+      })
+  )
+  )  
+  }, [day])
+
+  useEffect(()=>{
+    day == 'day' ? (
+      setMentorsList(
+        freeUsers.isFreeDay?.filter((item: any) => item.staff_position == "Mentor")?.map((item: any) => {
+          let obj = {...item, value: (item.name + " " + item?.direction), label: (item.name + " " + item?.direction), is_mentor: true}
+          return obj;
+        })
     )
-    setMentorsList(user.users?.results?.filter((item: any) => item.staff_position == "Mentor")?.map((item: any) => {
-      let obj = {...item, value: (item.name + " " + item?.direction), label: (item.name + " " + item?.direction), is_mentor: true}
-      return obj;
-    }))}, [user.users])
+    ):(
+      setMentorsList(
+        freeUsers.isFreeEvening?.filter((item: any) => item.staff_position == "Mentor")?.map((item: any) => {
+          let obj = {...item, value: (item.name + " " + item?.direction), label: (item.name + " " + item?.direction), is_mentor: true}
+          return obj;
+        })
+    )
+    )
+  },[day])
 
   const handleInp = (e: any): void => {
     if(e?.is_mentor){
