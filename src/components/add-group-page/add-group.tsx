@@ -6,8 +6,12 @@ import "./add-group.css"
 const AddGroup = () => {
   const { user } = useAppSelector((state) => state);
   const [trackersList, setTrackersList] = useState<any>([]);
-  const { fetchUsers, createGroup } = useAction();
+  const { fetchUsers, createGroup  , getFreeMentors} = useAction();
+  const freeUsers = useAppSelector((state: any) => state.user.usersMentorsFree);
   const [mentorsList, setMentorsList] = useState<any>([]);
+  const [day , setDay] = useState('day');
+  console.log(freeUsers.isFreeEvening);
+  
   const [newGroup, setNewGroup] = useState({
     name_of_group: '',
     date_of_start: '',
@@ -22,17 +26,57 @@ const AddGroup = () => {
 
   useEffect(()=>{
     fetchUsers()
+    getFreeMentors()
   },[])
+  
+  // useEffect(()=>{
+  //   if(day == 'day'){
+  //     console.log(freeUsers.isFreeDay)
+  //   }
+  //   else{
+  //     console.log(freeUsers.isFreeEvening)
+  //   }
+    
+  // },[day])
+  
 
   useEffect(() => {
-    setTrackersList(user.users?.results?.map((item: any) => {
-      let obj = {...item,value: (item.name + " " + item?.direction), label: (item.name + " " + item?.direction), is_tracker: true}
-      return obj;
-    }))
-    setMentorsList(user.users?.results?.filter((item: any) => item.staff_position == "Mentor")?.map((item: any) => {
-      let obj = {...item, value: (item.name + " " + item?.direction), label: (item.name + " " + item?.direction), is_mentor: true}
-      return obj;
-    }))}, [user.users])
+  day == 'day' ? (
+    
+    setTrackersList( 
+      freeUsers.isFreeDay?.map((item: any) => {
+        let obj = {...item,value: (item.name + " " + item?.direction), label: (item.name + " " + item?.direction), is_tracker: true}
+        return obj;
+      })
+  )
+  ):(
+    
+    setTrackersList( 
+      freeUsers.isFreeEvening?.map((item: any) => {
+        let obj = {...item,value: (item.name + " " + item?.direction), label: (item.name + " " + item?.direction), is_tracker: true}
+        return obj;
+      })
+  )
+  )  
+  }, [day])
+
+  useEffect(()=>{
+    day == 'day' ? (
+      setMentorsList(
+        freeUsers.isFreeDay?.filter((item: any) => item.staff_position == "Mentor")?.map((item: any) => {
+          let obj = {...item, value: (item.name + " " + item?.direction), label: (item.name + " " + item?.direction), is_mentor: true}
+          return obj;
+        })
+    )
+    ):(
+      setMentorsList(
+        freeUsers.isFreeEvening?.filter((item: any) => item.staff_position == "Mentor")?.map((item: any) => {
+          let obj = {...item, value: (item.name + " " + item?.direction), label: (item.name + " " + item?.direction), is_mentor: true}
+          return obj;
+        })
+    )
+    )
+  },[day])
 
   const handleInp = (e: any): void => {
     if(e?.is_mentor){
@@ -75,7 +119,10 @@ const AddGroup = () => {
         <label htmlFor="end_date">End date</label>
         <input name="date_of_end" id="end_date" type="date" onChange={(e) => handleInp(e)} />
         <label htmlFor="group_time">Group time</label>
-        <select name="group_studying_time" id="group_time" onChange={(e) => handleInp(e)}>
+        <select name="group_studying_time" id="group_time" onChange={(e) =>{ 
+          handleInp(e);
+          setDay(e.target.value);
+          }}>
           <option value="" disabled></option>
           <option value="day">Day</option>
           <option value="evening">Evening</option>

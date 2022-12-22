@@ -10,11 +10,22 @@ const inputStyle = {
   padding: '5px 20px'
 }
 
+
 const RoomsEdit = () => {
 
   const {id, day} = useParams();
-  const { getOneGroup, fetchUsers, updateOneRoom } = useAction();
+  const { getOneGroup, fetchUsers, updateOneRoom , getFreeMentors } = useAction();
   const { room, user  } = useAppSelector((state) => state);
+  const freeUsers = useAppSelector((state: any) => state.user.usersMentorsFree);
+
+  
+  // console.log(freeUsers.isFreeDay);
+  
+
+  
+  
+  
+  
   const [editingRoom, setEditingRoom] = useState<any>({});
   const [trackers, setTrackers] = useState<any>([]);
   const [trackersList, setTrackersList] = useState<any>([]);
@@ -26,6 +37,7 @@ const RoomsEdit = () => {
   useEffect(() => {
     getOneGroup(id);
     fetchUsers();
+    getFreeMentors();
   }, [])
 
   useEffect(() => {
@@ -90,15 +102,28 @@ const RoomsEdit = () => {
           <select style={inputStyle} name="mentor" onChange={(e) => handleInp(e)}>
             <option value={editingRoom?.mentor?.name} selected>{editingRoom?.mentor?.name}</option>
             {
-              user.users.results?.map((item: any) => (
-                <>
-                {
-                  item.staff_position == 'Mentor' ? 
-                  <option key={item.id} value={item.name + " " + item.last_name}>{item.name + " " + item.direction}</option>
-                  : <></>
-                }
-                </>
-              ))
+              day == 'day' ? (
+                freeUsers.isFreeDay?.map((item: any) => (
+                  <>
+                  {
+                    item.staff_position == 'Mentor' ? 
+                    <option key={item.id} value={item.name + " " + item.last_name}>{item.name + " " + item.direction}</option>
+                    : <></>
+                  }
+                  </>
+                ))
+              ):(
+                freeUsers.isFreeEvening?.map((item: any) => (
+                  <>
+                  {
+                    item.staff_position == 'Mentor' ? 
+                    <option key={item.id} value={item.name + " " + item.last_name}>{item.name + " " + item.direction}</option>
+                    : <></>
+                  }
+                  </>
+                ))
+              )
+              
             }
           </select>
           {
