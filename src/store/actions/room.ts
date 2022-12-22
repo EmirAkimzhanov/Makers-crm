@@ -1,6 +1,4 @@
-import { AppDispatch } from "../store";
 import axios from "axios";
-import { getAllRoomsFailed } from "../slices/rooms";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const API = 'http://35.184.247.17/';
@@ -10,7 +8,7 @@ const token = localStorage.getItem("token")
   : "";
 const config = {
   headers: {
-    "Content-Type": "multipart/form-data",
+    "Content-Type": "application/json",
     Authorization: `Bearer ${token.access}`,
   },
 };
@@ -41,8 +39,12 @@ export const getOneGroup = createAsyncThunk('getOneGroup', async (room_id: any) 
 })
 
 export const updateOneRoom = createAsyncThunk('updateOneRoom', async (info: any) => {
-  console.log(info)
-  const res = await axios.patch(API + `group/groups/update/${info.id}/`, info.data, config);
-  console.log(res);
-  return res;
+  try {
+    console.log(info)
+    const res = await axios.patch(API + `group/groups/update/${info.id}/`, JSON.stringify(info.data), config);
+    return res;
+  } catch (error) {
+    // return error;
+    console.log(error)
+  }
 })
