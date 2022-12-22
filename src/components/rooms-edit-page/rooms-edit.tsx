@@ -65,6 +65,8 @@ const RoomsEdit = () => {
     let obj = {...editingRoom};
     delete obj.group_studying_time;
     obj.tracker = obj.tracker?.map((item: any) => item.id)
+    obj.room = Number(id);
+    obj.number_of_students = Number(obj.number_of_students);
     updateOneRoom({data: obj, id: editingRoom?.room})
   }
 
