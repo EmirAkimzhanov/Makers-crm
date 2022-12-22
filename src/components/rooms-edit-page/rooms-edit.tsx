@@ -36,7 +36,6 @@ const RoomsEdit = () => {
   }, [trackersList])
 
   useEffect(() => {
-    console.log(room.groups)
     setEditingRoom(room.groups);
   }, [room.groups])
 
@@ -56,16 +55,16 @@ const RoomsEdit = () => {
     } else {
       setEditingRoom({
         ...editingRoom,
-        [e.target.name]: e.target.value,
+        [e.target?.name]: e.target?.value,
       })
     }
   }
-
+  
   const handleUpdateRoom = (e: any): void => {
     e.preventDefault();
-    console.log(editingRoom);
     let obj = {...editingRoom};
     delete obj.group_studying_time;
+    obj.tracker = obj.tracker?.map((item: any) => item.id)
     updateOneRoom({data: obj, id: editingRoom?.room})
   }
 

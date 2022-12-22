@@ -70,10 +70,10 @@ const RoomsDetails = () => {
                       ))}
             </div>
             <div className="room-staff">
-            <button className="room_update-btn" onClick={() => navigate(`/rooms/edit/${rooms?.id}/${filter.split(' ')[1]}`)}>update</button>
+            <button className="room_update-btn" onClick={() => navigate(`/rooms/edit/${rooms[group()][0]?.id}/${filter.split(' ')[1]}`)}>update</button>
 
                 <h2>
-                    Mentor: <span className="staff-names">{rooms[group()] && rooms[group()][0]?.mentor.name}</span>
+                    Mentor: <span className="staff-names" onClick={() => navigate(`/users/${rooms[group()][0]?.mentor.id}`)}>{rooms[group()] && rooms[group()][0]?.mentor.name}</span>
                 </h2>
                 <h2>
                     Trackers:{" "}
