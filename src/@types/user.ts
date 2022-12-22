@@ -30,3 +30,4 @@ export interface IUserSecond {
   previous: null;
   results: [];
 }
+

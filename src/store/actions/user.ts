@@ -6,8 +6,11 @@ import {
   getFailedAddPeople,
   getFailedDelete,
   getFailedEditPeople,
+  getFailedMentorsFree,
   getPeopleFailed,
+  getUsersFreeMentors,
 } from "../slices/users";
+import { useEffect } from "react";
 
 const API = "http://35.184.247.17/";
 
@@ -41,6 +44,23 @@ export const fetchUsers = () => async (dispatch: AppDispatch) => {
     dispatch(getPeopleFailed(error.message));
   }
 };
+
+
+export const getFreeMentors=()=>async(dispatch: AppDispatch)=>{
+  try {
+    const { data } = await axios(
+      `${API}staff/staffs/free_mentor/` + window.location.search,
+      config
+    );
+    dispatch(getUsersFreeMentors(data));
+    console.log(data);
+    
+  } catch (error: any) {
+    dispatch(getFailedMentorsFree(error.message));
+  }
+}
+
+
 
 
 export const handleDelete = (id: string) => async (dispatch: AppDispatch) =>{

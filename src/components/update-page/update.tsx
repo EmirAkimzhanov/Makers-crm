@@ -8,7 +8,7 @@ const Update = () => {
     const { fetchDetail } = useAction();
     const { handleReduct } = useAction();
     const { id } = useParams();
-  
+
     useEffect(() => {
       fetchDetail(id!);
     }, [id]);
