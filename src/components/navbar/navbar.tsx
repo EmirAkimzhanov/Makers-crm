@@ -18,6 +18,9 @@ const Navbar = () => {
             <Link to="/rooms">rooms</Link>
           </li>
           <li>
+            <Link to="/groups">groups</Link>
+          </li>
+          <li>
             <Link
               to="/login"
               data-bs-toggle="modal"

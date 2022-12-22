@@ -9,6 +9,8 @@ import Update from "./components/update-page/update";
 import RoomsPage from "./components/rooms-page";
 import RoomsDetails from "./components/rooms-details-page";
 import RoomsEdit from "./components/rooms-edit-page";
+import GroupsPage from "./components/groups-page";
+import AddGroup from "./components/add-group-page";
 
 const BuildRoutes = () => {
   const routes: IRouteType[] = [
@@ -56,6 +58,16 @@ const BuildRoutes = () => {
       link: "/rooms/edit/:id/:day",
       element: <RoomsEdit />,
       id: 9,
+    },
+    {
+      link: "/groups",
+      element: <GroupsPage />,
+      id: 10,
+    },
+    {
+      link: "/groups/add",
+      element: <AddGroup />,
+      id: 11,
     }
   ];
 

@@ -87,7 +87,7 @@ const RoomsEdit = () => {
           </select> */}
           <label htmlFor="mentor">Mentor</label>
           <select style={inputStyle} name="mentor" onChange={(e) => handleInp(e)}>
-            <option value={editingRoom?.mentor} selected>{editingRoom?.mentor?.split(' ')[0]}</option>
+            <option value={editingRoom?.mentor?.name} selected>{editingRoom?.mentor?.name}</option>
             {
               user.users.results?.map((item: any) => (
                 <>

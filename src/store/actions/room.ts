@@ -1,6 +1,4 @@
-import { AppDispatch } from "../store";
 import axios from "axios";
-import { getAllRoomsFailed } from "../slices/rooms";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const API = 'http://35.184.247.17/';

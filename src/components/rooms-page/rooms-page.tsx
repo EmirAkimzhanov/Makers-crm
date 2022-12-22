@@ -50,7 +50,7 @@ const RoomsPage = () => {
                   <div className='room room1' onClick={()=>navigate(`/rooms/${getRoomInfo(1)?.id}?=${day}`)}>room1
                     <div className='room-info'>
                       <p>{getRoomInfo(1)?.[dayOrEven()][0]?.name_of_group}</p>
-                      <p>{getRoomInfo(1)?.[dayOrEven()][0]?.mentor}</p>
+                      <p>{getRoomInfo(1)?.[dayOrEven()][0]?.mentor.name}</p>
                       <p>{getRoomInfo(1)?.[dayOrEven()][0]?.tracker.map((item: any) => (
                         <span className='trackers_name'>{item.name}</span>
                       ))}</p>
@@ -59,7 +59,7 @@ const RoomsPage = () => {
                   <div className='room room4' onClick={()=>navigate(`/rooms/${getRoomInfo(4)?.id}?=${day}`)}>room4
                     <div className='room-info'>
                       <p>{getRoomInfo(4)?.[dayOrEven()][0]?.name_of_group}</p>
-                      <p>{getRoomInfo(4)?.[dayOrEven()][0]?.mentor}</p>
+                      <p>{getRoomInfo(4)?.[dayOrEven()][0]?.mentor.name}</p>
                       <p>{getRoomInfo(4)?.[dayOrEven()][0]?.tracker.map((item: any) => (
                         <span className='trackers_name'>{item.name}</span>
                       ))}</p>
@@ -72,7 +72,7 @@ const RoomsPage = () => {
                   <div className='room room9' onClick={()=>navigate(`/rooms/${getRoomInfo(9)?.id}?=${day}`)}>room9
                     <div className='room-info'>
                         <p>{getRoomInfo(9)?.[dayOrEven()][0]?.name_of_group}</p>
-                        <p>{getRoomInfo(9)?.[dayOrEven()][0]?.mentor}</p>
+                        <p>{getRoomInfo(9)?.[dayOrEven()][0]?.mentor.name}</p>
                         <p>{getRoomInfo(9)?.[dayOrEven()][0]?.tracker.map((item: any) => (
                           <span className='trackers_name'>{item.name}</span>
                         ))}</p>
@@ -88,7 +88,7 @@ const RoomsPage = () => {
                   <div className='room room24' onClick={()=>navigate(`/rooms/${getRoomInfo(24)?.id}?=${day}`)}>24 room
                     <div className='room-info'>
                         <p>{getRoomInfo(24)?.[dayOrEven()][0]?.name_of_group}</p>
-                        <p>{getRoomInfo(24)?.[dayOrEven()][0]?.mentor}</p>
+                        <p>{getRoomInfo(24)?.[dayOrEven()][0]?.mentor.name}</p>
                         <p>{getRoomInfo(24)?.[dayOrEven()][0]?.tracker.map((item: any) => (
                           <span className='trackers_name'>{item.name}</span>
                         ))}</p>
@@ -97,7 +97,7 @@ const RoomsPage = () => {
                   <div className='room room22' onClick={()=>navigate(`/rooms/${getRoomInfo(22)?.id}?=${day}`)}>22 room
                     <div className='room-info'>
                         <p>{getRoomInfo(22)?.[dayOrEven()][0]?.name_of_group}</p>
-                        <p>{getRoomInfo(22)?.[dayOrEven()][0]?.mentor}</p>
+                        <p>{getRoomInfo(22)?.[dayOrEven()][0]?.mentor.name}</p>
                         <p>{getRoomInfo(22)?.[dayOrEven()][0]?.tracker.map((item: any) => (
                           <span className='trackers_name'>{item.name}</span>
                         ))}</p>
@@ -106,7 +106,7 @@ const RoomsPage = () => {
                   <div className='room aqua' onClick={()=>navigate(`/rooms/${getRoomInfo(19)?.id}?=${day}`)}>aquarium
                     <div className='room-info'>
                         <p>{getRoomInfo(19)?.[dayOrEven()][0]?.name_of_group}</p>
-                        <p>{getRoomInfo(19)?.[dayOrEven()][0]?.mentor}</p>
+                        <p>{getRoomInfo(19)?.[dayOrEven()][0]?.mentor.name}</p>
                         <p>{getRoomInfo(19)?.[dayOrEven()][0]?.tracker.map((item: any) => (
                           <span className='trackers_name'>{item.name}</span>
                         ))}</p>
@@ -120,7 +120,7 @@ const RoomsPage = () => {
                   <div className='room room14' onClick={()=>navigate(`/rooms/${getRoomInfo(14)?.id}?=${day}`)}>14 room
                     <div className='room-info'>
                         <p>{getRoomInfo(14)?.[dayOrEven()][0]?.name_of_group}</p>
-                        <p>{getRoomInfo(14)?.[dayOrEven()][0]?.mentor}</p>
+                        <p>{getRoomInfo(14)?.[dayOrEven()][0]?.mentor.name}</p>
                         <p>{getRoomInfo(14)?.[dayOrEven()][0]?.tracker.map((item: any) => (
                           <span className='trackers_name'>{item.name}</span>
                         ))}</p>
@@ -129,7 +129,7 @@ const RoomsPage = () => {
                   <div className='room room18'>18 room
                     <div className='room-info' onClick={()=>navigate(`/rooms/${getRoomInfo(17)?.id}?=${day}`)}>
                         <p>{getRoomInfo(17)?.[dayOrEven()][0]?.name_of_group}</p>
-                        <p>{getRoomInfo(17)?.[dayOrEven()][0]?.mentor}</p>
+                        <p>{getRoomInfo(17)?.[dayOrEven()][0]?.mentor.name}</p>
                         <p>{getRoomInfo(17)?.[dayOrEven()][0]?.tracker.map((item: any) => (
                           <span className='trackers_name'>{item.name}</span>
                         ))}</p>

@@ -1,0 +1,44 @@
+.group__inputs_container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.group__inputs_form {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.group__inputs_form label {
+  align-self: flex-end;
+  margin-top: 10px;
+}
+
+.group__inputs_form input {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 7px 10px;
+  margin-top: 2px;
+}
+
+.group__inputs_form select {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 7px 0;
+  margin-top: 5px;
+}
+
+.group__inputs_form button {
+  border: 1px solid black;
+  padding: 10px;
+  margin-top: 30px;
+  border-radius: 5px;
+  transition: 150ms;
+}
+
+.group__inputs_form button:hover {
+  background-color: black;
+  color: white;
+}
