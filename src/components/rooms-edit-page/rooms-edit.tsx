@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useAction, useAppSelector } from '../../hooks';
 import Select from 'react-select';
+import { getRoomId } from '../../helpers/rooms'
 
 const inputStyle = {
   border: '1px solid black',
@@ -10,11 +11,21 @@ const inputStyle = {
   padding: '5px 20px'
 }
 
-const RoomsEdit = () => {
 
+const RoomsEdit = () => {
   const {id, day} = useParams();
-  const { getOneGroup, fetchUsers, updateOneRoom } = useAction();
+  const { getOneGroup, fetchUsers, updateOneRoom , getFreeMentors } = useAction();
   const { room, user  } = useAppSelector((state) => state);
+  const freeUsers = useAppSelector((state: any) => state.user.usersMentorsFree);
+
+  
+  // console.log(freeUsers.isFreeDay);
+  
+
+  
+  
+  
+  
   const [editingRoom, setEditingRoom] = useState<any>({});
   const [trackers, setTrackers] = useState<any>([]);
   const [trackersList, setTrackersList] = useState<any>([]);
@@ -26,6 +37,7 @@ const RoomsEdit = () => {
   useEffect(() => {
     getOneGroup(id);
     fetchUsers();
+    getFreeMentors();
   }, [])
 
   useEffect(() => {
@@ -36,9 +48,8 @@ const RoomsEdit = () => {
   }, [trackersList])
 
   useEffect(() => {
-    console.log(room.groups)
     setEditingRoom(room.groups);
-  }, [room.groups])
+  }, [room.groups]);
 
   useEffect(() => {
     setTrackersList(user.users?.results?.map((item: any) => {
@@ -56,16 +67,18 @@ const RoomsEdit = () => {
     } else {
       setEditingRoom({
         ...editingRoom,
-        [e.target.name]: e.target.value,
+        [e.target?.name]: e.target?.value,
       })
     }
   }
-
+  
   const handleUpdateRoom = (e: any): void => {
     e.preventDefault();
-    console.log(editingRoom);
     let obj = {...editingRoom};
     delete obj.group_studying_time;
+    obj.tracker = obj.tracker?.map((item: any) => item.id)
+    obj.room = Number(getRoomId(+obj.room));
+    obj.number_of_students = Number(obj.number_of_students);
     updateOneRoom({data: obj, id: editingRoom?.room})
   }
 
@@ -87,17 +100,30 @@ const RoomsEdit = () => {
           </select> */}
           <label htmlFor="mentor">Mentor</label>
           <select style={inputStyle} name="mentor" onChange={(e) => handleInp(e)}>
-            <option value={editingRoom?.mentor} selected>{editingRoom?.mentor?.split(' ')[0]}</option>
+            <option value={editingRoom?.mentor?.name} selected>{editingRoom?.mentor?.name}</option>
             {
-              user.users.results?.map((item: any) => (
-                <>
-                {
-                  item.staff_position == 'Mentor' ? 
-                  <option key={item.id} value={item.name + " " + item.last_name}>{item.name + " " + item.direction}</option>
-                  : <></>
-                }
-                </>
-              ))
+              day == 'day' ? (
+                freeUsers.isFreeDay?.map((item: any) => (
+                  <>
+                  {
+                    item.staff_position == 'Mentor' ? 
+                    <option key={item.id} value={item.name + " " + item.last_name}>{item.name + " " + item.direction}</option>
+                    : <></>
+                  }
+                  </>
+                ))
+              ):(
+                freeUsers.isFreeEvening?.map((item: any) => (
+                  <>
+                  {
+                    item.staff_position == 'Mentor' ? 
+                    <option key={item.id} value={item.name + " " + item.last_name}>{item.name + " " + item.direction}</option>
+                    : <></>
+                  }
+                  </>
+                ))
+              )
+              
             }
           </select>
           {

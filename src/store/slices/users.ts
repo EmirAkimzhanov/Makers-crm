@@ -4,6 +4,7 @@ import { IUser, IUserDetail, IUserSecond } from "src/@types/user";
 interface IState {
   users: IUserSecond;
   userDetail: IUserDetail;
+  usersMentorsFree:[],
   user: null | object;
   loading: boolean;
   error: null | string;
@@ -12,6 +13,7 @@ interface IState {
 const initialState: IState = {
   users: {} as IUserSecond,
   userDetail: {} as IUserDetail,
+  usersMentorsFree:[] ,
   user: null,
   loading: true,
   error: null,
@@ -48,11 +50,19 @@ const usersSlice = createSlice({
     getFailedDelete(state, action) {
       state.error = action.payload;
       state.loading = false;
-    }
+    },
+    getUsersFreeMentors(state , action){
+      state.usersMentorsFree = action.payload;
+      state.loading = false;
+    },
+    getFailedMentorsFree(state, action) {
+      state.error = action.payload;
+      state.loading = false;
+    },
   },
 });
 
-const { getAllPeopleSuccess, getOnePeople, getPeopleFailed, getDetail, getFailedAddPeople, getFailedEditPeople , getFailedDelete } =
+const { getAllPeopleSuccess, getOnePeople, getPeopleFailed, getDetail, getFailedAddPeople, getFailedEditPeople , getFailedDelete , getUsersFreeMentors , getFailedMentorsFree} =
   usersSlice.actions;
 
 const userReducer = usersSlice.reducer;
@@ -65,4 +75,6 @@ export {
   getFailedAddPeople,
   getFailedEditPeople,
   getFailedDelete,
+  getUsersFreeMentors,
+  getFailedMentorsFree
 };
