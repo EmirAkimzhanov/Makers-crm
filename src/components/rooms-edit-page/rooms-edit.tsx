@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useAction, useAppSelector } from '../../hooks';
 import Select from 'react-select';
+import { getRoomId } from '../../helpers/rooms'
 
 const inputStyle = {
   border: '1px solid black',
@@ -11,7 +12,6 @@ const inputStyle = {
 }
 
 const RoomsEdit = () => {
-
   const {id, day} = useParams();
   const { getOneGroup, fetchUsers, updateOneRoom } = useAction();
   const { room, user  } = useAppSelector((state) => state);
@@ -37,7 +37,7 @@ const RoomsEdit = () => {
 
   useEffect(() => {
     setEditingRoom(room.groups);
-  }, [room.groups])
+  }, [room.groups]);
 
   useEffect(() => {
     setTrackersList(user.users?.results?.map((item: any) => {
@@ -65,7 +65,7 @@ const RoomsEdit = () => {
     let obj = {...editingRoom};
     delete obj.group_studying_time;
     obj.tracker = obj.tracker?.map((item: any) => item.id)
-    obj.room = Number(id);
+    obj.room = Number(getRoomId(+obj.room));
     obj.number_of_students = Number(obj.number_of_students);
     updateOneRoom({data: obj, id: editingRoom?.room})
   }

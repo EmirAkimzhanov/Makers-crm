@@ -8,7 +8,7 @@ const token = localStorage.getItem("token")
   : "";
 const config = {
   headers: {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     Authorization: `Bearer ${token.access}`,
   },
 };
@@ -41,10 +41,9 @@ export const getOneGroup = createAsyncThunk('getOneGroup', async (room_id: any) 
 export const updateOneRoom = createAsyncThunk('updateOneRoom', async (info: any) => {
   try {
     console.log(info)
-    const res = await axios.patch(API + `group/groups/update/${info.id}/`, JSON.stringify(info.data), config);
+    const res = await axios.patch(API + `group/groups/update/${info.id}/`, info.data, config);
     return res;
   } catch (error) {
-    // return error;
-    console.log(error)
+    return error;
   }
 })
