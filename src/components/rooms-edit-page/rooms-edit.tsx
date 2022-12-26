@@ -79,9 +79,13 @@ const RoomsEdit = () => {
     obj.tracker = obj.tracker?.map((item: any) => item.id)
     obj.room = Number(getRoomId(+obj.room));
     obj.number_of_students = Number(obj.number_of_students);
+    console.log(obj)
+    obj.mentor = typeof obj.mentor === 'string' ? JSON.parse(obj.mentor) : obj.mentor;
     updateOneRoom({data: obj, id: editingRoom?.room})
     navigate('/rooms')
   }
+
+  console.log(editingRoom)
 
   return (
     <>
@@ -101,14 +105,14 @@ const RoomsEdit = () => {
           </select> */}
           <label htmlFor="mentor">Mentor</label>
           <select style={inputStyle} name="mentor" onChange={(e) => handleInp(e)}>
-            <option value={editingRoom?.mentor?.name} selected>{editingRoom?.mentor?.name}</option>
+            <option value={JSON.stringify(editingRoom?.mentor)} selected>{editingRoom?.mentor?.name + " " + editingRoom?.mentor?.direction}</option>
             {
               day == 'day' ? (
                 freeUsers.isFreeDay?.map((item: any) => (
                   <>
                   {
                     item.staff_position == 'Mentor' ? 
-                    <option key={item.id} value={item.name + " " + item.last_name}>{item.name + " " + item.direction}</option>
+                    <option key={item.id} value={JSON.stringify(item)}>{item.name + " " + item.direction}</option>
                     : <></>
                   }
                   </>
@@ -118,7 +122,7 @@ const RoomsEdit = () => {
                   <>
                   {
                     item.staff_position == 'Mentor' ? 
-                    <option key={item.id} value={item.name + " " + item.last_name}>{item.name + " " + item.direction}</option>
+                    <option key={item.id} value={JSON.stringify(item)}>{item.name + " " + item.direction}</option>
                     : <></>
                   }
                   </>
