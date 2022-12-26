@@ -33,9 +33,17 @@ const RoomsPage = () => {
     return rooms.results?.find((item) => item.room_number === room_id)
   }
 
+  const getDayNightIcon = () => {
+    if(day === 'evening') {
+      return '/images/night.svg';
+    } else {
+      return '/images/day.svg';
+    }
+  }
+
   return (
     <>
-      <div className='rooms-page-container'>
+      <div className={day === "evening" ? 'rooms-page-container evening_layer' : 'rooms-page-container'}>
         <div className='rooms-page-header'>
           <button className='floor-change-btn' onClick={handleFloor}>change floor</button>
           <button className={'day_evening-change-btn' + ` btn-${day}`} onClick={handleDay}>day / evening</button>
@@ -66,7 +74,7 @@ const RoomsPage = () => {
                     </div>
                   </div>
                 </div>
-                <p className='floor-name'>1 Этаж {day}</p>
+                <p className='floor-name'>1 Этаж <img src={getDayNightIcon()} alt="day night icon" width="70"/></p>
                 <div className='floor-rightside updateside'>
                   <div className='room room11'>room11</div>
                   <div className='room room9' onClick={()=>navigate(`/rooms/${getRoomInfo(9)?.id}?=${day}`)}>room9
@@ -113,7 +121,7 @@ const RoomsPage = () => {
                     </div>
                   </div>
                 </div>
-                <p className='floor-name'>Цокольный этаж</p>
+                <p className='floor-name'>Цокольный этаж <img src={getDayNightIcon()} alt="day night icon" width="70"/></p>
                 <div className='floor-rightside'>
                   <div className='room production'>production</div>
                   <div className='room studio'>studio</div>
@@ -126,8 +134,8 @@ const RoomsPage = () => {
                         ))}</p>
                     </div>
                   </div>
-                  <div className='room room18'>18 room
-                    <div className='room-info' onClick={()=>navigate(`/rooms/${getRoomInfo(17)?.id}?=${day}`)}>
+                  <div className='room room18' onClick={()=>navigate(`/rooms/${getRoomInfo(17)?.id}?=${day}`)}>18 room
+                    <div className='room-info'>
                         <p>{getRoomInfo(17)?.[dayOrEven()][0]?.name_of_group}</p>
                         <p>{getRoomInfo(17)?.[dayOrEven()][0]?.mentor.name}</p>
                         <p>{getRoomInfo(17)?.[dayOrEven()][0]?.tracker.map((item: any) => (

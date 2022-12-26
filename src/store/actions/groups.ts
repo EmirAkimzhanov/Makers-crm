@@ -19,9 +19,12 @@ export const fetchGroups = createAsyncThunk('fetchGroups', async ()=>{
 })
 
 export const createGroup = createAsyncThunk('createGroup', async (newGroup: any) => {
-  console.log(newGroup)
+  console.log(newGroup);
   let res = await axios.post(API + 'create/', JSON.stringify(newGroup), config);
-  console.log(res)
-  console.log('create group end');
   return res.data
+})
+
+export const deleteGroup = createAsyncThunk('deleteGroup', async (id: any) => {
+  let res = await axios.delete(API + `delete/${id}/`, config);
+  return res
 })
