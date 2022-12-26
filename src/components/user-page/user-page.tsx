@@ -40,14 +40,14 @@ console.log(results);
             <div  style={{display:`${display}`}}>
             </div>
             <div className="filter-block">
-            <select className="filter" onChange={(e)=>fetchByParams('direction' ,`${e.target.value}` )}>
-            <option className="filter-item" value="JS">JS</option>
-            <option className="filter-item" value="Py">Py</option>
-          </select>
-            <div className="main-right-box-add">
-              <p className="add-text" onClick={() => navigate("/add")}>
-                +
-              </p>
+              <select className="filter" onChange={(e)=>fetchByParams('direction' ,`${e.target.value}` )}>
+                <option className="filter-item" value="JS">JS</option>
+                <option className="filter-item" value="Py">Py</option>
+              </select>
+              <div className="main-right-box-add">
+                <p className="add-text" onClick={() => navigate("/add")}>
+                  +
+                </p>
               </div>
               
             </div>

@@ -68,6 +68,11 @@ const BuildRoutes = () => {
       link: "/groups/add",
       element: <AddGroup />,
       id: 11,
+    },
+    {
+      link: "*",
+      element: <>page not found</>,
+      id: 12,
     }
   ];
 

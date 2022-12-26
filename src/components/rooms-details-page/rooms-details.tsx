@@ -16,7 +16,7 @@ const RoomsDetails = () => {
     useEffect(() => {
         getOneRoom(id);
         location.search == "?=evening" ? setFilter('switch evening') : setFilter('switch day');
-    }, []);
+    }, [id]);
 
     useEffect(()=>{
       setSlots(slotsFill(rooms.capacity));
@@ -25,6 +25,14 @@ const RoomsDetails = () => {
     function group() {
       return filter == "switch day" ? 'day_group' : 'evening_group';
     }
+
+    const getDayNightIcon = () => {
+        if(filter === 'switch evening') {
+          return '/images/night.svg';
+        } else {
+          return '/images/day.svg';
+        }
+      }
 
     function slotsFill(capacity: number | any): any {
       let res: any = [];
@@ -53,6 +61,7 @@ const RoomsDetails = () => {
                 <div className="header-elem group_name">{rooms[group()] && rooms[group()][0]?.name_of_group}</div>
                 <div className="header-elem group_quantity">{rooms[group()] && rooms[group()][0]?.number_of_students}/{rooms.capacity}</div>
             </div>
+            <img src={getDayNightIcon()} alt="day night icon" width="70" className="day-night-icon" />
             <div className="slots-container">
                 {slots.map((item, index) => (
                     <div

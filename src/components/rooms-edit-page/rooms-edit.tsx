@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { useAction, useAppSelector } from '../../hooks';
 import Select from 'react-select';
+import { getRoomId } from '../../helpers/rooms'
 
 const inputStyle = {
   border: '1px solid black',
@@ -12,7 +13,6 @@ const inputStyle = {
 
 
 const RoomsEdit = () => {
-
   const {id, day} = useParams();
   const { getOneGroup, fetchUsers, updateOneRoom , getFreeMentors } = useAction();
   const { room, user  } = useAppSelector((state) => state);
@@ -29,7 +29,7 @@ const RoomsEdit = () => {
   const [editingRoom, setEditingRoom] = useState<any>({});
   const [trackers, setTrackers] = useState<any>([]);
   const [trackersList, setTrackersList] = useState<any>([]);
-
+  const navigate = useNavigate();
   function getDayEvenInfo() {
     return day == 'evening' ? 'evening_group' : 'day_group';
   }
@@ -49,7 +49,7 @@ const RoomsEdit = () => {
 
   useEffect(() => {
     setEditingRoom(room.groups);
-  }, [room.groups])
+  }, [room.groups]);
 
   useEffect(() => {
     setTrackersList(user.users?.results?.map((item: any) => {
@@ -77,10 +77,15 @@ const RoomsEdit = () => {
     let obj = {...editingRoom};
     delete obj.group_studying_time;
     obj.tracker = obj.tracker?.map((item: any) => item.id)
-    obj.room = Number(id);
+    obj.room = Number(getRoomId(+obj.room));
     obj.number_of_students = Number(obj.number_of_students);
+    console.log(obj)
+    obj.mentor = typeof obj.mentor === 'string' ? JSON.parse(obj.mentor) : obj.mentor;
     updateOneRoom({data: obj, id: editingRoom?.room})
+    navigate('/rooms')
   }
+
+  console.log(editingRoom)
 
   return (
     <>
@@ -100,14 +105,14 @@ const RoomsEdit = () => {
           </select> */}
           <label htmlFor="mentor">Mentor</label>
           <select style={inputStyle} name="mentor" onChange={(e) => handleInp(e)}>
-            <option value={editingRoom?.mentor?.name} selected>{editingRoom?.mentor?.name}</option>
+            <option value={JSON.stringify(editingRoom?.mentor)} selected>{editingRoom?.mentor?.name + " " + editingRoom?.mentor?.direction}</option>
             {
               day == 'day' ? (
                 freeUsers.isFreeDay?.map((item: any) => (
                   <>
                   {
                     item.staff_position == 'Mentor' ? 
-                    <option key={item.id} value={item.name + " " + item.last_name}>{item.name + " " + item.direction}</option>
+                    <option key={item.id} value={JSON.stringify(item)}>{item.name + " " + item.direction}</option>
                     : <></>
                   }
                   </>
@@ -117,7 +122,7 @@ const RoomsEdit = () => {
                   <>
                   {
                     item.staff_position == 'Mentor' ? 
-                    <option key={item.id} value={item.name + " " + item.last_name}>{item.name + " " + item.direction}</option>
+                    <option key={item.id} value={JSON.stringify(item)}>{item.name + " " + item.direction}</option>
                     : <></>
                   }
                   </>

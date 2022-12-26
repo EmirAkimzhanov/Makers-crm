@@ -41,10 +41,19 @@ export const getOneGroup = createAsyncThunk('getOneGroup', async (room_id: any) 
 export const updateOneRoom = createAsyncThunk('updateOneRoom', async (info: any) => {
   try {
     console.log(info)
-    const res = await axios.patch(API + `group/groups/update/${info.id}/`, JSON.stringify(info.data), config);
+    const res = await axios.patch(API + `group/groups/update/${info.data.id}/`, JSON.stringify(info.data), config);
     return res;
   } catch (error) {
-    // return error;
-    console.log(error)
+    return error;
   }
+})
+
+export const getFreeDayRooms = createAsyncThunk('getFreeDayRooms', async () => {
+  const { data } = await axios(API + 'room/rooms/free/day/');
+  return data;
+})
+
+export const getFreeEveningRooms = createAsyncThunk('getFreeEveningRooms', async () => {
+  const { data } = await axios(API + 'room/rooms/free/evening/');
+  return data;
 })
