@@ -15,12 +15,12 @@ const Update = () => {
   
     const { userDetail: user } = useAppSelector((state) => state.user);
   
-
+    const navigate = useNavigate();
     console.log(user , 'hi');
    
     const [updateName, setUpdateName] = useState(user.name || '');
     const [updateSurname, setUpdateSurname] = useState(user.last_name || '');
-    const [updatePosition, setUpdatePosition] = useState('');
+    const [updatePosition, setUpdatePosition] = useState(user.staff_position || '');
     const [updateDirection, setUpdateDirection] = useState(user.direction || '');
     const [updateContract, setUpdateContract] = useState(user.plans_to_leave || '');
     const [updateTraining, setUpdateTraining] = useState(user.start_of_training || '');
@@ -29,12 +29,21 @@ const Update = () => {
     const [updateRank, setUpdateRank] = useState(user.staff_rank || '');
     
     
+    console.log(updateName == ' ');
     
    
     
     const reduct = () => {
-      handleReduct(updateName, updateSurname, updatePosition , updateDirection, updateContract,updateTraining,updateExperience,updateEndTraining,updateRank, id!);
+      if(updateName == "" || updateDirection == "" || updatePosition == "" || updateSurname == "" || updateContract == "" || updateTraining == "" || updateExperience == "" || updateEndTraining == "" || updateRank == ""){
+       
+      }
+      else{
+        handleReduct(updateName, updateSurname, updatePosition , updateDirection, updateContract,updateTraining,updateExperience,updateEndTraining,updateRank, id!);
+      fetchDetail(id!);
+      navigate(`/users/${id}`)
+      }
     };
+
   
     return (
         <div>
@@ -45,27 +54,25 @@ const Update = () => {
               <label className="form-label inline-block mb-2 text-gray-700">
                 Edit Employee
               </label>
-              <form style={{display:"flex" , flexDirection:"column"}}>
-          <input value={updateName} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}}  placeholder="name" onChange={(e)=>setUpdateName(e.target.value)}></input>
-          <input value={updateSurname} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="surname" onChange={(e)=>setUpdateSurname(e.target.value)}></input>
-          {/* <input value={updateDirection} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="direction" onChange={(e)=>setUpdateDirection(e.target.value)}></input> */}
-          <input value={updateContract} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="contract details" onChange={(e)=>setUpdateContract(e.target.value)}></input>
-          <input value={updateTraining} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="start of training" onChange={(e)=>setUpdateTraining(e.target.value)}></input>
-          <input value={updateExperience} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="experience" onChange={(e)=>setUpdateExperience(e.target.value)}></input>
-          <input value={updateEndTraining} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="end of training" onChange={(e)=>setUpdateEndTraining(e.target.value)}></input>
-          <input value={updateRank} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="rank" onChange={(e)=>setUpdateRank(e.target.value)}></input>
-              <select style={{  border:"2px solid gray" , borderRadius:"5px"}}  name="dog-names" id="dog-names" onChange={(e) => setUpdatePosition(e.target.value)} >
-            <option value="" >Position</option>
+              <form style={{display:"flex" , flexDirection:"column"}} action=''>
+          <input required value={updateName} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}}  placeholder="name" onChange={(e)=>setUpdateName(e.target.value)}></input>
+          <input required value={updateSurname} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="surname" onChange={(e)=>setUpdateSurname(e.target.value)}></input>
+          <input required value={updateContract} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="contract details" onChange={(e)=>setUpdateContract(e.target.value)}></input>
+          <input required value={updateTraining} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="start of training" onChange={(e)=>setUpdateTraining(e.target.value)}></input>
+          <input required value={updateExperience} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="experience" onChange={(e)=>setUpdateExperience(e.target.value)}></input>
+          <input required value={updateEndTraining} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="end of training" onChange={(e)=>setUpdateEndTraining(e.target.value)}></input>
+          <input required value={updateRank} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="rank" onChange={(e)=>setUpdateRank(e.target.value)}></input>
+              <select value={updatePosition} style={{  border:"2px solid gray" , borderRadius:"5px"}}  name="dog-names" id="dog-names" onChange={(e) => setUpdatePosition(e.target.value)} >
+            <option  value="" >Position</option>
               <option value="Mentor" >Mentor</option>
               <option  value="Curator" >Curator</option>
               <option value="Tracker" >Tracker</option>
           </select>
-          <select style={{marginTop:"20px" , border:"2px solid gray" , borderRadius:"5px"}}  name="dog-names" id="worst-dog-names" onChange={(e) => setUpdateDirection(e.target.value)} >
-            <option value="" >Direction</option>
+          <select value={updateDirection}  style={{marginTop:"20px" , border:"2px solid gray" , borderRadius:"5px"}}  name="dog-names" id="worst-dog-names" onChange={(e) => setUpdateDirection(e.target.value)} >
+            <option value="direction" >Direction</option>
               <option value="JS" >JS</option>
               <option  value="Py">Py</option>
           </select>
-              {/* onChange={(e) => setUpdatePosition(e.target.value)} */}
               <div className="flex space-x-2 justify-center">
                 <button
                   type="submit"

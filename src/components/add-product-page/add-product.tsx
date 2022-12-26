@@ -16,7 +16,14 @@ const AddProduct = () => {
   const [rank , setRank] = useState('');
  
   const create = () => {
+    // if(name == '' || surname == '' || direction == '' || position == '' || contract == '' || training == '' || experience == '' || name == '' || endTraining || rank == '' ){
+      
+    // }
+    // else{
+
+    // }
     addNewUser(name, surname, position , direction , contract  , training , experience , endTraining ,rank);
+    
   };
 console.log(position);
 
@@ -39,46 +46,54 @@ const inputStyle = {
             </label>
         <form>
           <input 
+          required
           style={inputStyle}
           placeholder='name' 
           onChange={(e)=>setName(e.target.value)}
           />
           <input 
+          required
           style={inputStyle}
           placeholder='surname' 
           onChange={(e)=>setSurname(e.target.value)}
           />
           <input 
+          required
           style={inputStyle}
           placeholder='direction' 
           onChange={(e)=>setDirection(e.target.value)}
           />
           <input 
+          required
           style={inputStyle}
           placeholder='contract details' 
           onChange={(e)=>setContract(e.target.value)}
           />
           <input 
+          required
           style={inputStyle}
           placeholder='start of training' 
           onChange={(e)=>setTraining(e.target.value)}
           />
           <input 
+          required
           style={inputStyle}
           placeholder='tracker experience' 
           onChange={(e)=>setExperience(e.target.value)}
           />
           <input 
+          required
           style={inputStyle}
           placeholder='end of training' 
           onChange={(e)=>setEndTraining(e.target.value)}
           />
           <input 
+          required
           style={inputStyle}
           placeholder='rank' 
           onChange={(e)=>setRank(e.target.value)}
           />
-          <select  name="dog-names" id="dog-names" onChange={(e)=>setPosition(e.target.value)}>
+          <select required  name="dog-names" id="dog-names" onChange={(e)=>setPosition(e.target.value)}>
             <option value="" >select position</option>
               <option value="Mentor" >Mentor</option>
               <option  value="Curator" >Curator</option>

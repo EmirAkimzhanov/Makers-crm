@@ -11,8 +11,10 @@ import {
   getUsersFreeMentors,
 } from "../slices/users";
 import { useEffect } from "react";
+import { useNavigate } from "react-router";
 
 const API = "http://35.184.247.17/";
+
 
 const token = localStorage.getItem("token")
   ? JSON.parse(localStorage.getItem("token")!)
@@ -146,6 +148,7 @@ export const handleReduct = (name: string, surname: string, position: string , d
       config
     );
     console.log(res)
+    fetchDetail(id!);
   } catch (error: any) {
     dispatch(getFailedEditPeople(error.message));
     console.log(error);
