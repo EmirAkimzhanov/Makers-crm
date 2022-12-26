@@ -2,6 +2,7 @@ import React, { useState, useEffect  } from 'react';
 import Select from 'react-select';
 import { useAction, useAppSelector } from '../../hooks';
 import "./add-group.css"
+import { getRoomId } from  '../../helpers/rooms'
 
 const AddGroup = () => {
   const { user } = useAppSelector((state) => state);
@@ -10,13 +11,12 @@ const AddGroup = () => {
   const freeUsers = useAppSelector((state: any) => state.user.usersMentorsFree);
   const [mentorsList, setMentorsList] = useState<any>([]);
   const [day , setDay] = useState('day');
-  console.log(freeUsers.isFreeEvening);
   
   const [newGroup, setNewGroup] = useState({
     name_of_group: '',
     date_of_start: '',
     date_of_end: '',
-    group_studying_time: '',
+    group_studying_time: 'day',
     number_of_students: 0,
     is_graduated: false,
     mentor: {},
@@ -27,18 +27,7 @@ const AddGroup = () => {
   useEffect(()=>{
     fetchUsers()
     getFreeMentors()
-  },[])
-  
-  // useEffect(()=>{
-  //   if(day == 'day'){
-  //     console.log(freeUsers.isFreeDay)
-  //   }
-  //   else{
-  //     console.log(freeUsers.isFreeEvening)
-  //   }
-    
-  // },[day])
-  
+  },[])  
 
   useEffect(() => {
   day == 'day' ? (
@@ -93,7 +82,7 @@ const AddGroup = () => {
     } else if(e.target.name === 'room'){
       setNewGroup({
         ...newGroup,
-        room: 10,
+        room: getRoomId(+e.target.value),
       })
     } else {
       setNewGroup({
@@ -139,7 +128,7 @@ const AddGroup = () => {
             options={mentorsList}
             onChange={(e) => handleInp(e)}/>
           </> :
-          <></>
+          <>Нет свободных менторов</>
        }
        {
         trackersList?.length ?
@@ -152,11 +141,15 @@ const AddGroup = () => {
             isMulti
             onChange={(e) => handleInp(e)}
           />
-        </> : <></>
+        </> : <>Нет свободных трекеров</>
        }
 
         <label htmlFor="group_room">Room</label>
         <input name="room" id="group_room" type="number" onChange={(e) => handleInp(e)}/>
+        {/* <select name="room" id="">
+          
+          <option value=""></option>
+        </select> */}
         <button type='submit'>Add</button>
       </form>
     </div>

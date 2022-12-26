@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router';
-import { createGroup, fetchGroups } from '../actions/groups'
+import { createGroup, deleteGroup, fetchGroups } from '../actions/groups'
 
 interface IGroups {
   id: number,
@@ -41,7 +41,18 @@ const groupSlice = createSlice({
       })
       .addCase(createGroup.rejected, (state: any, action) => {
         state.status = 'failed'
+        console.log(action)
+      })
+      .addCase(deleteGroup.pending, (state: any, action) => {
+        state.status = 'loading'
+      })
+      .addCase(deleteGroup.fulfilled, (state: any, action) => {
+        state.status = 'succeeded'
         console.log(state.status)
+      })
+      .addCase(deleteGroup.rejected, (state: any, action) => {
+        state.status = 'failed'
+        console.log(action)
       })
   }
 });
