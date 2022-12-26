@@ -54,25 +54,59 @@ const Update = () => {
               <label className="form-label inline-block mb-2 text-gray-700">
                 Edit Employee
               </label>
-              <form style={{display:"flex" , flexDirection:"column"}} action=''>
-          <input required value={updateName} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}}  placeholder="name" onChange={(e)=>setUpdateName(e.target.value)}></input>
-          <input required value={updateSurname} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="surname" onChange={(e)=>setUpdateSurname(e.target.value)}></input>
-          <input required value={updateContract} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="contract details" onChange={(e)=>setUpdateContract(e.target.value)}></input>
-          <input required value={updateTraining} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="start of training" onChange={(e)=>setUpdateTraining(e.target.value)}></input>
-          <input required value={updateExperience} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="experience" onChange={(e)=>setUpdateExperience(e.target.value)}></input>
-          <input required value={updateEndTraining} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="end of training" onChange={(e)=>setUpdateEndTraining(e.target.value)}></input>
-          <input required value={updateRank} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="rank" onChange={(e)=>setUpdateRank(e.target.value)}></input>
-              <select value={updatePosition} style={{  border:"2px solid gray" , borderRadius:"5px"}}  name="dog-names" id="dog-names" onChange={(e) => setUpdatePosition(e.target.value)} >
-            <option  value="" >Position</option>
-              <option value="Mentor" >Mentor</option>
-              <option  value="Curator" >Curator</option>
-              <option value="Tracker" >Tracker</option>
-          </select>
-          <select value={updateDirection}  style={{marginTop:"20px" , border:"2px solid gray" , borderRadius:"5px"}}  name="dog-names" id="worst-dog-names" onChange={(e) => setUpdateDirection(e.target.value)} >
-            <option value="direction" >Direction</option>
-              <option value="JS" >JS</option>
-              <option  value="Py">Py</option>
-          </select>
+              <form style={{display:"flex" , flexDirection:"column"}} onSubmit={reduct}>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <label htmlFor="upd-name">Name:</label>
+                  <input required id="upd-name" value={updateName} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}}  placeholder="name" onChange={(e)=>setUpdateName(e.target.value)}></input>
+                </div>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <label htmlFor="upd-surname">Last name:</label>
+                  <input required id="upd-surname" value={updateSurname} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="surname" onChange={(e)=>setUpdateSurname(e.target.value)}></input>
+                </div>
+                {/* <input value={updateDirection} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="direction" onChange={(e)=>setUpdateDirection(e.target.value)}></input> */}
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <label htmlFor="upd-contract">Contract till:</label>
+                  <input required id="upd-contract" value={updateContract} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="contract details" onChange={(e)=>setUpdateContract(e.target.value)}></input>
+                </div>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <label htmlFor="upd-trainig">Training start:</label>
+                  <input required id="upd-training" value={updateTraining} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="start of training" onChange={(e)=>setUpdateTraining(e.target.value)}></input>
+                </div>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <label htmlFor="upd-exp">Experience:</label>
+                  <input required id="upd-exp" value={updateExperience} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="experience" onChange={(e)=>setUpdateExperience(e.target.value)}></input>
+                </div>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <label htmlFor="upd-end_training">Training end:</label>
+                  <input required id="upd-end_training" value={updateEndTraining} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="end of training" onChange={(e)=>setUpdateEndTraining(e.target.value)}></input>
+                </div>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <label htmlFor="upd-rank">Rank:</label>
+                  <select required id="upd-rank" value={updateRank} style={{marginBottom:"20px" , border:"2px solid gray" , borderRadius:"5px"}} placeholder="rank" onChange={(e)=>setUpdateRank(e.target.value)}>
+                    <option value="Trainee">Trainee</option>
+                    <option value="Ronin">Ronin</option>
+                    <option value="Ninja">Ninja</option>
+                    <option value="Samurai">Samurai</option>
+                    <option value="Daimio">Daimio</option>
+                  </select>
+                </div>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <label htmlFor="dog-names">Position:</label>
+                  <select required style={{  border:"2px solid gray" , borderRadius:"5px", marginBottom:"20px"}}  name="dog-names" id="dog-names" onChange={(e) => setUpdatePosition(e.target.value)} >
+                    {/* <option value="" >Position</option> */}
+                    <option value="Mentor" >Mentor</option>
+                    <option  value="Curator" >Curator</option>
+                    <option value="Tracker" >Tracker</option>
+                  </select>
+                </div>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <label htmlFor="worst-dog-names">Direction:</label>
+                  <select required style={{border:"2px solid gray" , borderRadius:"5px"}}  name="dog-names" id="worst-dog-names" onChange={(e) => setUpdateDirection(e.target.value)} >
+                    {/* <option value="" >Direction</option> */}
+                    <option value="JS" >JS</option>
+                    <option  value="Py">Py</option>
+                  </select>
+                </div>
               <div className="flex space-x-2 justify-center">
                 <button
                   type="submit"

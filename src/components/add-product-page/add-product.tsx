@@ -63,15 +63,21 @@ const inputStyle = {
           placeholder='direction' 
           onChange={(e)=>setDirection(e.target.value)}
           />
+          <label htmlFor="contract_details" className="new_user_labels">Contract details</label>
           <input 
+          id="contract_details"
+          type="date"
           required
           style={inputStyle}
           placeholder='contract details' 
           onChange={(e)=>setContract(e.target.value)}
           />
+          <label htmlFor="start_training" className="new_user_labels">Start of training</label>
           <input 
+          id="start_training"
           required
           style={inputStyle}
+          type="date"
           placeholder='start of training' 
           onChange={(e)=>setTraining(e.target.value)}
           />
@@ -81,9 +87,12 @@ const inputStyle = {
           placeholder='tracker experience' 
           onChange={(e)=>setExperience(e.target.value)}
           />
+          <label htmlFor="end_of_training" className="new_user_labels">End of training</label>
           <input 
+          id="end_of_training"
           required
           style={inputStyle}
+          type="date"
           placeholder='end of training' 
           onChange={(e)=>setEndTraining(e.target.value)}
           />

@@ -51,7 +51,7 @@ const RoomsPage = () => {
         <div className="rooms-container">
           {
             floor ?
-              <div className="floor-container"> {/* 1 floor */}
+              <div className={day === "evening" ? "floor-container evening_hallway" : "floor-container"}> {/* 1 floor */}
                 <div className='floor-leftside'>
                   <div className='room kitchen'>kitchen</div>
                   <div className='room sales'>sales<div className='gay'>Шаба педик</div></div>

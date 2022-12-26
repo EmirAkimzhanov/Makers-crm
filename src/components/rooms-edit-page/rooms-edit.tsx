@@ -79,13 +79,10 @@ const RoomsEdit = () => {
     obj.tracker = obj.tracker?.map((item: any) => item.id)
     obj.room = Number(getRoomId(+obj.room));
     obj.number_of_students = Number(obj.number_of_students);
-    console.log(obj)
     obj.mentor = typeof obj.mentor === 'string' ? JSON.parse(obj.mentor) : obj.mentor;
     updateOneRoom({data: obj, id: editingRoom?.room})
     navigate('/rooms')
   }
-
-  console.log(editingRoom)
 
   return (
     <>
