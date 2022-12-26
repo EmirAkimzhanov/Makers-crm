@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { useAction, useAppSelector } from '../../hooks';
 import Select from 'react-select';
 import { getRoomId } from '../../helpers/rooms'
@@ -29,7 +29,7 @@ const RoomsEdit = () => {
   const [editingRoom, setEditingRoom] = useState<any>({});
   const [trackers, setTrackers] = useState<any>([]);
   const [trackersList, setTrackersList] = useState<any>([]);
-
+  const navigate = useNavigate();
   function getDayEvenInfo() {
     return day == 'evening' ? 'evening_group' : 'day_group';
   }
@@ -80,6 +80,7 @@ const RoomsEdit = () => {
     obj.room = Number(getRoomId(+obj.room));
     obj.number_of_students = Number(obj.number_of_students);
     updateOneRoom({data: obj, id: editingRoom?.room})
+    navigate('/rooms')
   }
 
   return (

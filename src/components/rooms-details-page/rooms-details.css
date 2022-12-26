@@ -5,6 +5,7 @@
 }
 
 .room-details-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,4 +113,11 @@
 .room_update-btn:hover {
   background-color: #ffa86a;
   color: white;
+}
+
+.day-night-icon {
+  position: absolute;
+  align-self: flex-start;
+  left: 100px;
+  top: 50px;
 }

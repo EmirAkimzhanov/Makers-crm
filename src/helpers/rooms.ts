@@ -18,6 +18,6 @@ export const getRoomId = (room: number) => {
     case 24:
       return 1;  
     default:
-      return 0;
+      return 10;
   }
 }
