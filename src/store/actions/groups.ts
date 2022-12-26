@@ -25,6 +25,6 @@ export const createGroup = createAsyncThunk('createGroup', async (newGroup: any)
 })
 
 export const deleteGroup = createAsyncThunk('deleteGroup', async (id: any) => {
-  let res = await axios.delete(API + `delete/${id}/`);
+  let res = await axios.delete(API + `delete/${id}/`, config);
   return res
 })
